@@ -45,8 +45,9 @@ jobs: # a collection of steps
       # Only necessary if app uses webpacker or yarn in some other way
       - restore_cache:
           keys:
-            - rails-demo-yarn-{{ checksum "yarn.lock" }}
-            - rails-demo-yarn-
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
 
       - run:
           name: Yarn Install
@@ -54,9 +55,9 @@ jobs: # a collection of steps
 
       # Store yarn / webpacker cache
       - save_cache:
-          key: rails-demo-yarn-{{ checksum "yarn.lock" }}
           paths:
-            - ~/.cache/yarn
+            - ./venv
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       - run:
           name: Wait for DB
