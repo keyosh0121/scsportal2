@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_07_093832) do
+ActiveRecord::Schema.define(version: 2019_01_07_102100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "authorities", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,13 +34,28 @@ ActiveRecord::Schema.define(version: 2019_01_07_093832) do
   create_table "bands", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", default: "", null: false
-    t.integer "year", default: 2019, null: false
-    t.text "description", default: ""
-    t.text "feature", default: ""
+    t.string "name", null: false
+    t.integer "year", null: false
+    t.text "description"
+    t.text "feature"
     t.string "web_url"
-    t.integer "band_type", default: 0, null: false
-    t.boolean "registeration", default: false, null: false
+    t.integer "band_type", null: false
+    t.boolean "registeration", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name", null: false
+    t.date "date"
+    t.time "start_time"
+    t.time "end_time"
+    t.boolean "entry_requirement", default: false, null: false
+    t.string "place"
+    t.time "entry_start"
+    t.time "entry_end"
+    t.bigint "host_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["host_id"], name: "index_events_on_host_id"
   end
 
   create_table "mics", force: :cascade do |t|
@@ -64,7 +79,7 @@ ActiveRecord::Schema.define(version: 2019_01_07_093832) do
   end
 
   create_table "periods", force: :cascade do |t|
-    t.string "name", default: "", null: false
+    t.string "name", null: false
     t.time "start_time", null: false
     t.time "end_time", null: false
     t.datetime "created_at", null: false
@@ -86,8 +101,8 @@ ActiveRecord::Schema.define(version: 2019_01_07_093832) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.string "name", default: "", null: false
-    t.integer "room_type", default: 0, null: false
+    t.string "name", null: false
+    t.integer "room_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -103,11 +118,11 @@ ActiveRecord::Schema.define(version: 2019_01_07_093832) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name", default: "", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.integer "year", default: 2019
-    t.string "uni", default: "", null: false
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "encrypted_password", null: false
+    t.integer "year", null: false
+    t.string "uni", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -124,6 +139,11 @@ ActiveRecord::Schema.define(version: 2019_01_07_093832) do
 
   add_foreign_key "band_members", "bands"
   add_foreign_key "band_members", "users"
+  add_foreign_key "events", "users", column: "host_id"
+  add_foreign_key "mics", "bands"
+  add_foreign_key "mics", "periods"
+  add_foreign_key "mics", "rooms"
+  add_foreign_key "mics", "users"
   add_foreign_key "room_usages", "bands"
   add_foreign_key "room_usages", "periods"
   add_foreign_key "room_usages", "sections"
