@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_07_091720) do
+ActiveRecord::Schema.define(version: 2019_01_07_093343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authorities", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "band_members", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -72,6 +78,16 @@ ActiveRecord::Schema.define(version: 2019_01_07_091720) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sections", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "authority_id"
+    t.bigint "leader_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["authority_id"], name: "index_sections_on_authority_id"
+    t.index ["leader_id"], name: "index_sections_on_leader_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "email", default: "", null: false
@@ -94,4 +110,6 @@ ActiveRecord::Schema.define(version: 2019_01_07_091720) do
 
   add_foreign_key "band_members", "bands"
   add_foreign_key "band_members", "users"
+  add_foreign_key "sections", "authorities"
+  add_foreign_key "sections", "users", column: "leader_id"
 end
