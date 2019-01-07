@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_07_103959) do
+ActiveRecord::Schema.define(version: 2019_01_07_104232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 2019_01_07_103959) do
     t.string "web_url"
     t.integer "band_type", null: false
     t.boolean "registeration", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "presentation_id", null: false
+    t.text "comment", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["presentation_id"], name: "index_comments_on_presentation_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -168,6 +178,8 @@ ActiveRecord::Schema.define(version: 2019_01_07_103959) do
 
   add_foreign_key "band_members", "bands"
   add_foreign_key "band_members", "users"
+  add_foreign_key "comments", "presentations"
+  add_foreign_key "comments", "users"
   add_foreign_key "documents", "presentations"
   add_foreign_key "events", "users", column: "host_id"
   add_foreign_key "mics", "bands"
