@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_07_103258) do
+ActiveRecord::Schema.define(version: 2019_01_07_103959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 2019_01_07_103258) do
     t.string "web_url"
     t.integer "band_type", null: false
     t.boolean "registeration", null: false
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.bigint "presentation_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["presentation_id"], name: "index_documents_on_presentation_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -84,6 +93,15 @@ ActiveRecord::Schema.define(version: 2019_01_07_103258) do
     t.time "end_time", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "presentation_hosts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "presentation_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["presentation_id"], name: "index_presentation_hosts_on_presentation_id"
+    t.index ["user_id"], name: "index_presentation_hosts_on_user_id"
   end
 
   create_table "presentations", force: :cascade do |t|
@@ -150,11 +168,14 @@ ActiveRecord::Schema.define(version: 2019_01_07_103258) do
 
   add_foreign_key "band_members", "bands"
   add_foreign_key "band_members", "users"
+  add_foreign_key "documents", "presentations"
   add_foreign_key "events", "users", column: "host_id"
   add_foreign_key "mics", "bands"
   add_foreign_key "mics", "periods"
   add_foreign_key "mics", "rooms"
   add_foreign_key "mics", "users"
+  add_foreign_key "presentation_hosts", "presentations"
+  add_foreign_key "presentation_hosts", "users"
   add_foreign_key "presentations", "events"
   add_foreign_key "presentations", "users", column: "host_id"
   add_foreign_key "room_usages", "bands"

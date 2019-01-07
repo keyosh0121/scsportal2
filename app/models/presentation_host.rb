@@ -1,0 +1,2 @@
+class PresentationHost < ApplicationRecord
+end
