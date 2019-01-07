@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_01_06_124125) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", default: "", null: false
-    t.integer "year", null: false
+    t.integer "year", default: 2019, null: false
     t.text "description", default: ""
     t.text "feature", default: ""
     t.string "web_url"
