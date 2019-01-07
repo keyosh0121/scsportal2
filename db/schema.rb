@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_07_093343) do
+ActiveRecord::Schema.define(version: 2019_01_07_093832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,20 @@ ActiveRecord::Schema.define(version: 2019_01_07_093343) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "room_usages", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "band_id"
+    t.bigint "section_id"
+    t.bigint "period_id", null: false
+    t.date "date", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["band_id"], name: "index_room_usages_on_band_id"
+    t.index ["period_id"], name: "index_room_usages_on_period_id"
+    t.index ["section_id"], name: "index_room_usages_on_section_id"
+    t.index ["user_id"], name: "index_room_usages_on_user_id"
+  end
+
   create_table "rooms", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.integer "room_type", default: 0, null: false
@@ -110,6 +124,10 @@ ActiveRecord::Schema.define(version: 2019_01_07_093343) do
 
   add_foreign_key "band_members", "bands"
   add_foreign_key "band_members", "users"
+  add_foreign_key "room_usages", "bands"
+  add_foreign_key "room_usages", "periods"
+  add_foreign_key "room_usages", "sections"
+  add_foreign_key "room_usages", "users"
   add_foreign_key "sections", "authorities"
   add_foreign_key "sections", "users", column: "leader_id"
 end

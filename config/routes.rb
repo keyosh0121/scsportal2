@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :room_usages
   resources :mics
   resources :bands
   devise_for :users
