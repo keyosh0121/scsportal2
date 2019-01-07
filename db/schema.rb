@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_07_104232) do
+ActiveRecord::Schema.define(version: 2019_01_07_104449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,18 @@ ActiveRecord::Schema.define(version: 2019_01_07_104232) do
     t.index ["host_id"], name: "index_presentations_on_host_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "band_id", null: false
+    t.bigint "event_id", null: false
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["band_id"], name: "index_reviews_on_band_id"
+    t.index ["event_id"], name: "index_reviews_on_event_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "room_usages", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "band_id"
@@ -190,6 +202,9 @@ ActiveRecord::Schema.define(version: 2019_01_07_104232) do
   add_foreign_key "presentation_hosts", "users"
   add_foreign_key "presentations", "events"
   add_foreign_key "presentations", "users", column: "host_id"
+  add_foreign_key "reviews", "bands"
+  add_foreign_key "reviews", "events"
+  add_foreign_key "reviews", "users"
   add_foreign_key "room_usages", "bands"
   add_foreign_key "room_usages", "periods"
   add_foreign_key "room_usages", "sections"
