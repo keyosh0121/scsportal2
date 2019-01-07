@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_07_102100) do
+ActiveRecord::Schema.define(version: 2019_01_07_103258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,17 @@ ActiveRecord::Schema.define(version: 2019_01_07_102100) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "presentations", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "event_id", null: false
+    t.bigint "host_id"
+    t.time "length"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_presentations_on_event_id"
+    t.index ["host_id"], name: "index_presentations_on_host_id"
+  end
+
   create_table "room_usages", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "band_id"
@@ -144,6 +155,8 @@ ActiveRecord::Schema.define(version: 2019_01_07_102100) do
   add_foreign_key "mics", "periods"
   add_foreign_key "mics", "rooms"
   add_foreign_key "mics", "users"
+  add_foreign_key "presentations", "events"
+  add_foreign_key "presentations", "users", column: "host_id"
   add_foreign_key "room_usages", "bands"
   add_foreign_key "room_usages", "periods"
   add_foreign_key "room_usages", "sections"
