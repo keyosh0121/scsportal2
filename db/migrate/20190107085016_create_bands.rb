@@ -2,13 +2,13 @@ class CreateBands < ActiveRecord::Migration[5.2]
   def change
     create_table :bands do |t|
       t.timestamps
-      t.string  :name,               null: false, default: ""
-      t.integer :year,               null: false, default: Date.today.year
-      t.text    :description,                        default: ""
-      t.text    :feature,                            default: ""
+      t.string  :name,               null: false
+      t.integer :year,               null: false
+      t.text    :description
+      t.text    :feature
       t.string  :web_url
-      t.integer :band_type,          null: false, default: 0
-      t.boolean :registeration,      null:false,  default: false
+      t.integer :band_type,          null: false
+      t.boolean :registeration,      null: false
     end
   end
 end
