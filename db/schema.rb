@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_07_090252) do
+ActiveRecord::Schema.define(version: 2019_01_07_091720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,26 @@ ActiveRecord::Schema.define(version: 2019_01_07_090252) do
     t.string "web_url"
     t.integer "band_type", default: 0, null: false
     t.boolean "registeration", default: false, null: false
+  end
+
+  create_table "mics", force: :cascade do |t|
+    t.date "date", null: false
+    t.time "start_time"
+    t.time "end_time"
+    t.bigint "user_id", null: false
+    t.bigint "band_id", null: false
+    t.bigint "room_id", null: false
+    t.bigint "period_id", null: false
+    t.integer "order"
+    t.text "remark"
+    t.string "status"
+    t.string "pa_attendance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["band_id"], name: "index_mics_on_band_id"
+    t.index ["period_id"], name: "index_mics_on_period_id"
+    t.index ["room_id"], name: "index_mics_on_room_id"
+    t.index ["user_id"], name: "index_mics_on_user_id"
   end
 
   create_table "periods", force: :cascade do |t|
