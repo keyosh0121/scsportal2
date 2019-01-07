@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_07_105210) do
+ActiveRecord::Schema.define(version: 2019_01_07_110517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,10 +37,13 @@ ActiveRecord::Schema.define(version: 2019_01_07_105210) do
     t.string "name", null: false
     t.integer "year", null: false
     t.text "description"
-    t.text "feature"
     t.string "web_url"
     t.integer "band_type", null: false
     t.boolean "registeration", null: false
+    t.bigint "master_id", null: false
+    t.bigint "pa_id", null: false
+    t.index ["master_id"], name: "index_bands_on_master_id"
+    t.index ["pa_id"], name: "index_bands_on_pa_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -205,6 +208,8 @@ ActiveRecord::Schema.define(version: 2019_01_07_105210) do
 
   add_foreign_key "band_members", "bands"
   add_foreign_key "band_members", "users"
+  add_foreign_key "bands", "users", column: "master_id"
+  add_foreign_key "bands", "users", column: "pa_id"
   add_foreign_key "comments", "presentations"
   add_foreign_key "comments", "users"
   add_foreign_key "documents", "presentations"
