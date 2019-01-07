@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_07_104449) do
+ActiveRecord::Schema.define(version: 2019_01_07_104645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(version: 2019_01_07_104449) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["presentation_id"], name: "index_documents_on_presentation_id"
+  end
+
+  create_table "event_entries", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "band_id", null: false
+    t.bigint "event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["band_id"], name: "index_event_entries_on_band_id"
+    t.index ["event_id"], name: "index_event_entries_on_event_id"
+    t.index ["user_id"], name: "index_event_entries_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -193,6 +204,9 @@ ActiveRecord::Schema.define(version: 2019_01_07_104449) do
   add_foreign_key "comments", "presentations"
   add_foreign_key "comments", "users"
   add_foreign_key "documents", "presentations"
+  add_foreign_key "event_entries", "bands"
+  add_foreign_key "event_entries", "events"
+  add_foreign_key "event_entries", "users"
   add_foreign_key "events", "users", column: "host_id"
   add_foreign_key "mics", "bands"
   add_foreign_key "mics", "periods"
