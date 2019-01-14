@@ -13,3 +13,40 @@
  *= require_tree .
  *= require_self
  */
+
+@import "flex_settings";
+
+*{
+	box-sizing: border-box;
+	margin: 0;
+}
+
+// ==== ここから別ファイルに切り分け予定（_basic_settings.scss)
+
+// 要素のクラスにbeltを追加すると親要素と幅を揃えてPaddingを設定します
+.belt{
+	width:100%;
+	padding: 0 20px;
+}
+
+// ==== _basic_settings.scss ここまで
+
+
+// HEADER設定用Style
+header{
+	height:80px;
+	background-color: $b3-color;
+	color: $main-color;
+	.icon{width:80px;}
+	.text{margin:auto;text-align:center;}
+}
+
+
+// FOOTER設定用Style
+footer{
+	height:250px;
+	background-color: $neutral_color;
+	color: $main-color;
+	padding: 20px 0;
+	#footer-text{text-align: center;}
+}
