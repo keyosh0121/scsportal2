@@ -5,9 +5,13 @@
     %title Scsportal2
     = csrf_meta_tags
     = csp_meta_tag
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/css/uikit.min.css", :rel => "stylesheet"}/
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit.min.js"}
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit-icons.min.js"}
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'layouts/header'
-    = yield
+    .content
+      = yield
     = render 'layouts/footer'

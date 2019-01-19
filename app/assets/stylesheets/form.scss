@@ -1,0 +1,26 @@
+.form-title{
+  font-size: 3vh;
+}
+
+.field{
+  height: 8vh;
+  &-input{
+    min-width: 50vw;
+    height: 4vh !important;
+    line-height: 5vh;
+  }
+  &-label{
+    font-size: 2vh;
+    height: 2vh;
+  }
+}
+
+.form-button{
+  font-size: 2vh;
+  width: 20vw;
+  height: 5vh;
+}
+
+.warning{
+  font-size: 1.5vh;
+}
