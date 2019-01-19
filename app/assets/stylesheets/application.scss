@@ -15,6 +15,9 @@
  */
 
 @import "flex_settings";
+@import "colors";
+@import "reset";
+
 
 *{
 	box-sizing: border-box;
@@ -34,19 +37,30 @@
 
 // HEADER設定用Style
 header{
-	height:80px;
+	height:10vh;
 	background-color: $b3-color;
 	color: $main-color;
 	.icon{width:80px;}
-	.text{margin:auto;text-align:center;}
+	.text{
+		margin:0 auto;
+		text-align:center;
+		font-size:5vh;
+	}
 }
 
 
 // FOOTER設定用Style
 footer{
-	height:250px;
+	height:20vh;
 	background-color: $neutral_color;
 	color: $main-color;
 	padding: 20px 0;
+	flex-shrink: 0;
 	#footer-text{text-align: center;}
+}
+
+
+// footer下に固定用
+.content{
+	min-height: calc(100vh - 10vh - 20vh);
 }
