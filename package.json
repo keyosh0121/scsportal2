@@ -1,5 +1,7 @@
 {
   "name": "scsportal2",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "uikit": "^3.0.2"
+  }
 }

@@ -2,6 +2,7 @@
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = devise_error_messages!
     %legend.uk-legend.form-title 新規登録
+    /%span{'uk-icon': 'heart' }
     .field
       = f.label :名前, class: "field-label"
       / .field-input.uk-inline
@@ -11,7 +12,7 @@
       = f.label :メール, class: "field-label"
       / .field-input.uk-inline
       /   %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: mail"}
-      = f.email_field :email, autocomplete: "email", class: "uk-input field-input"
+      = f.email_field :email, autocomplete: "email", class: "uk-input field-input", placeholder: "Email"
     .field
       = f.label :パスワード, class: "field-label uk-float-left"
       - if @minimum_password_length
@@ -23,7 +24,7 @@
     .field
       = f.label :パスワード確認, class: "field-label"
       / .field-input.uk-inline
-      /   %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: lock"}
+      /%span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: lock"}
       = f.password_field :password_confirmation, autocomplete: "off", class: "uk-input field-input"
     .field
       = f.label :入会年度, class: "field-label"
