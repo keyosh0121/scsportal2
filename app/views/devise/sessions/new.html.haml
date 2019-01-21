@@ -1,5 +1,5 @@
 .flex-center.flex-column
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  = form_for resource, as: resource_name, url: session_path(resource_name), class: 'form'  do |f|
     %legend.uk-legend.form-title ログイン
     .field
       = f.label :email, class: "field-label"
@@ -15,8 +15,8 @@
       .field
         .uk-inline
           = f.check_box :remember_me, class: "uk-checkbox"   
-          %span{style:'font-size:1.5vh'} 次回から自動ログイン
+          %span{style:'font-size:1.5vh'} 次回からログインを省略
     .actions.flex-center
       = f.submit "Log in",class: "uk-button uk-button-primary form-button"
 
-= render "devise/shared/links"
+    = render "devise/shared/links"
