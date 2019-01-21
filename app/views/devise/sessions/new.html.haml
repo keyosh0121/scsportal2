@@ -1,19 +1,21 @@
 .flex-center.flex-column
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    %legend.uk-legend.form-title Log in
+    %legend.uk-legend.form-title ログイン
     .field
-      = f.label :email, class: "field-label uk-float-left"
-      %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email", class: "uk-input field-input"
+      = f.label :email, class: "field-label"
+      .uk-inline
+        %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: mail"}
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "uk-input field-input"
     .field
-      = f.label :password, class: "field-label uk-float-left"
-      %br/
-      = f.password_field :password, autocomplete: "off", class: "uk-input field-input"
+      = f.label :password, class: "field-label"
+      .uk-inline
+        %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: lock"}
+        = f.password_field :password, autocomplete: "off", class: "uk-input field-input"
     - if devise_mapping.rememberable?
       .field
-        = f.label :remember_me, class: "field-label uk-float-left"
-        = f.check_box :remember_me, class: "uk-checkbox uk-float-left"
-        
+        .uk-inline
+          = f.check_box :remember_me, class: "uk-checkbox"   
+          %span{style:'font-size:1.5vh'} 次回から自動ログイン
     .actions.flex-center
       = f.submit "Log in",class: "uk-button uk-button-primary form-button"
 
