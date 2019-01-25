@@ -14,19 +14,15 @@
  *= require_self
  */
 
-
-@import "reset"; 
+@import "uikit_css/uikit-rtl.min.css";
+@import "uikit_css/uikit.min.css";
+@import "reset";
 @import "flex_settings";
 @import "colors";
 
 
-@import "uikit/src/scss/variables.scss";
-@import "uikit/src/scss/mixins.scss";
-@import "uikit/src/scss/uikit.scss";
 
-@import "uikit/src/scss/variables-theme.scss";
-@import "uikit/src/scss/mixins-theme.scss";
-@import "uikit/src/scss/uikit-theme.scss";
+
 
 *{
 	box-sizing: border-box;
@@ -50,7 +46,7 @@ header{
 	height:8vh;
 	font-family: 'Share Tech';
 	background-color: $b3-color;
-	
+
 	.icon{width:80px;}
 	.text{
 		margin:0 auto;
