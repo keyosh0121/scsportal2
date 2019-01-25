@@ -1,10 +1,12 @@
-%h2 Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .actions
-    = f.submit "Send me reset password instructions"
-= render "devise/shared/links"
+.flex-center
+	= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+		%legend.uk-legend.form-title パスワードのリセット
+		= devise_error_messages!
+		.field
+			= f.label :email
+			.uk-inline
+				%span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: mail"}
+				= f.email_field :email, autofocus: true, autocomplete: "email", class: "uk-input field-input"
+		.actions
+		= f.submit "パスワードをリセットする", class: "uk-button uk-button-danger form-button"
+		= render "devise/shared/links"
