@@ -15,10 +15,10 @@
  */
 
 
-
+@import "reset"; 
 @import "flex_settings";
 @import "colors";
-@import "reset";
+
 
 @import "uikit/src/scss/variables.scss";
 @import "uikit/src/scss/mixins.scss";
@@ -60,6 +60,11 @@ header{
 	}
 }
 
+form{
+	width:100%;
+	padding:16px;
+	max-width: 500px;
+}
 
 // FOOTER設定用Style
 footer{
