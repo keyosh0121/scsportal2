@@ -10,10 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require uikit_js/uikit.min.js
+//= require uikit_js/uikit-icons.min.js
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
 //= require jquery
-//= require uikit/dist/js/uikit.min
-//= require uikit/dist/js/uikit-icons.min
