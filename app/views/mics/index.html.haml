@@ -1,0 +1,26 @@
+%h2 マイク練画面モック(音響用)
+
+
+- mic_date = @mics.map(&:date).uniq
+- mic_date.each do |date| 
+  = date #日付表示
+  - @mics.where(date: date).each do |mic| #該当日付のマイク練表示
+    = mic.period #限表示
+    = mic.order if mic.order #分割あれば順番表示
+
+    - if mic.room
+      = mic.room #部屋登録用リンク貼る
+    - else
+      = "部屋未定" #部屋登録用リンク貼る
+
+    = mic.band.name
+    = mic.band.pa.name if mic.band.band_type == 0
+    = mic.pa_attendance if mic.band.band_type == 0
+    = mic.band.master.name #連絡用リンク貼る
+
+    = link_to "削除", mic_path(mic), method: 'DELETE', data: { confirm: "本当に削除しますか？"}
+    
+    - if mic.apply_status == 0 
+      = link_to "承認", mic_path(mic), method: 'PATCH', data: { confirm: "本当に承認しますか？" }
+    - else
+      = "承認済み" 
