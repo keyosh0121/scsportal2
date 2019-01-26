@@ -1806,7 +1806,7 @@ select.uk-form-width-xsmall {
  * Input padding
  */
 .uk-form-icon:not(.uk-form-icon-flip) ~ .uk-input {
-  padding-right: 40px !important;
+  padding-right: 17px !important;
 }
 /*
  * Position modifier
@@ -1816,7 +1816,7 @@ select.uk-form-width-xsmall {
   right: auto;
 }
 .uk-form-icon-flip ~ .uk-input {
-  padding-left: 40px !important;
+  padding-left: 17px !important;
 }
 /* ========================================================================
    Component: Button

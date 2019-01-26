@@ -1,7 +1,7 @@
 .flex-center
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = devise_error_messages!
-    %legend.uk-legend.form-title 新規登録
+    %legend.uk-legend.form-title.flex-center 新規登録
     .field
       = f.label :氏名, class: "field-label"
       .uk-inline
