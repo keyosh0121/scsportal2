@@ -1,6 +1,6 @@
 .flex-center
 	= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-		%legend.uk-legend.form-title パスワードのリセット
+		%legend.uk-legend.form-title.flex-center パスワードのリセット
 		= devise_error_messages!
 		.field
 			= f.label :email
