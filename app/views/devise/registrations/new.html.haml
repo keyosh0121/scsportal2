@@ -40,7 +40,7 @@
         = f.text_field :uni, class: "uk-input field-input"
     .field
       =f.label :セクション, class: "field-label"
-      =f.collection_select(:section_id, Section.all, :id, :name, {}, { class: 'uk-select field-input' })
+      =f.collection_select(:section_id, Section.all, :id, :name, {prompt: true}, { class: 'uk-select field-input' })
     .actions.flex-center
       = f.submit "登録", class: "uk-button uk-button-primary form-button"
     = render "devise/shared/links"

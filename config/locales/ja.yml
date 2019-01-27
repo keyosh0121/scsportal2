@@ -203,3 +203,12 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
     pm: 午後
+  attributes:
+    name: 名前
+    email: メールアドレス
+    password: パスワード
+    year: 入会年度
+    uni: 大学名
+    section: セクション
+
+
