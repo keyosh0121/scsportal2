@@ -170,6 +170,13 @@ legend {
 #yui3-css-stamp.cssreset {
   display: none;
 }
+
+/* line 112, /Users/araifuta/Desktop/scsportal2/app/assets/stylesheets/_reset.scss */
+input, button, textarea, select, legend {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 /* line 3, /Users/araifuta/Desktop/scsportal2/app/assets/stylesheets/flash.scss */
 .notification .notice {
   background-color: #38AEF0;
@@ -24558,6 +24565,13 @@ legend {
 /* line 110, /Users/araifuta/Desktop/scsportal2/app/assets/stylesheets/_reset.scss */
 #yui3-css-stamp.cssreset {
   display: none;
+}
+
+/* line 112, /Users/araifuta/Desktop/scsportal2/app/assets/stylesheets/_reset.scss */
+input, button, textarea, select, legend {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 /* line 6, /Users/araifuta/Desktop/scsportal2/app/assets/stylesheets/_flex_settings.scss */
