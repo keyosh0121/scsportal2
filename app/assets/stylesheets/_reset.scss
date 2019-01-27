@@ -108,3 +108,9 @@ legend {
 }
 
 #yui3-css-stamp.cssreset { display: none; }
+
+input, button, textarea, select, legend {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}

@@ -1,6 +1,39 @@
 %header.flex-start.belt
-	#header-left.icon
+	#header-left.icon.flex-center
 	#header-center.grow.flex-center
 		.text SCS Portal
-	#header-right.icon
+	#header-right.icon.flex-center
+		%button.uk-icon{ 'uk-icon': 'grid', ratio: 1.6, style: 'fill:white'}
+		%div{'uk-dropdown': 'mode: click', style: 'background-color:#F5F5F5'}
+			%ul.uk-nav.uk-dropdown-nav
+				%li.uk-nav-header メニュー
+				%li.uk-nav-divider
+				%li.uk-margin-small-top
+
+					%a 
+						%span.uk-margin-small-right{'uk-icon': 'microphone'} 
+						マイク練申請
+				%li.uk-margin-small-top
+					%a
+						%span.uk-margin-small-right{'uk-icon': 'file-edit'} 
+						イベントへのエントリー
+				%li.uk-margin-small-top
+					%a 
+						%span.uk-margin-small-right{'uk-icon': 'sign-in'} 
+						練習部屋・会議室申請
+				%li.uk-margin-small-top
+					%a 
+						%span.uk-margin-small-right{'uk-icon': 'users'}
+						バンド申請
+				%li.uk-margin-small-top
+					%a 
+						%span.uk-margin-small-right{'uk-icon': 'commenting'}
+						講評・コメントの入力
+				%li.uk-nav-divider
+				%li.uk-margin-small-top
+					%a 
+						%span.uk-margin-small-right{'uk-icon': 'settings'}
+						管理者ポータルへ
+
+
 

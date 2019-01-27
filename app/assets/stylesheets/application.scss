@@ -14,19 +14,10 @@
  *= require_self
  */
 
-
-
+@import "scsportal-uikit.css";
+@import "reset";
 @import "flex_settings";
 @import "colors";
-@import "reset";
-
-@import "uikit/src/scss/variables.scss";
-@import "uikit/src/scss/mixins.scss";
-@import "uikit/src/scss/uikit.scss";
-
-@import "uikit/src/scss/variables-theme.scss";
-@import "uikit/src/scss/mixins-theme.scss";
-@import "uikit/src/scss/uikit-theme.scss";
 
 *{
 	box-sizing: border-box;
@@ -50,8 +41,7 @@ header{
 	height:8vh;
 	font-family: 'Share Tech';
 	background-color: $b3-color;
-	
-	.icon{width:80px;}
+	.icon{width:50px;}
 	.text{
 		margin:0 auto;
 		text-align:center;
@@ -60,6 +50,11 @@ header{
 	}
 }
 
+form{
+	width:100%;
+	padding:16px;
+	max-width: 500px;
+}
 
 // FOOTER設定用Style
 footer{
