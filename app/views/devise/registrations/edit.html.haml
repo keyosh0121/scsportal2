@@ -1,36 +1,57 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "off"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+.flex-center
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = devise_error_messages!
+    %legend.uk-legend.form-title.flex-center 情報編集
+    .field
+      = f.label :氏名, class: "field-label"
+      .uk-inline
+        %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: user"}
+        = f.text_field :name, class: "uk-input field-input"
+    .field
+      = f.label :メール, class: "field-label"
+      .uk-inline
+        %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: mail"}
+        = f.email_field :email, autocomplete: "email", class: "uk-input field-input", placeholder: "Email"
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      %div
+        Currently waiting confirmation for: #{resource.unconfirmed_email}
+    .field
+      = f.label :入会年度, class: "field-label"
+      / .field-input.uk-inline
+      .uk-inline
+        %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: calendar"}
+        = f.text_field :year, class: "uk-input field-input"
+    .field
+      = f.label :大学, class: "field-label"
+      / .field-input.uk-inline
+      .uk-inline
+        %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: world"}
+        = f.text_field :uni, class: "uk-input field-input"
+    .field
+      =f.label :セクション, class: "field-label"
+      / .field-input.uk-inline
+      =f.collection_select(:section_id, Section.all, :id, :name, {selected: current_user.section.id}, { class: 'uk-select field-input' })
+    .field
+      = f.label :パスワード, class: "field-label"
+      - if @minimum_password_length
+        /%em.warning
+        /  (最低#{@minimum_password_length}文字)
+      .uk-inline
+        %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: lock"}
+        = f.password_field :password, autocomplete: "off", class: "uk-input field-input", placeholder: "変更の必要がなければ入力不要"
+    .field
+      = f.label :パスワード確認, class: "field-label"
+      .uk-inline
+        %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: lock"}
+        = f.password_field :password_confirmation, autocomplete: "off", class: "uk-input field-input"
+    .field
+      = f.label :現在のパスワード, class: "field-label"
+      .uk-inline
+        %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: lock"}
+        = f.password_field :current_password, autocomplete: "off", class: "uk-input field-input", placeholder: "パスワードを変更する場合、本人確認のために必要です"
+    .actions.flex-center
+      = f.submit "変更", class: "uk-button uk-button-primary form-button"
+/ %h3 Cancel my account
+/ %p
+/   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+= link_to "トップページに戻る", :back, class: "uk-link uk-link-heading"
