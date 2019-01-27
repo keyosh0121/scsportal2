@@ -14,15 +14,10 @@
  *= require_self
  */
 
-@import "uikit_css/uikit-rtl.min.css";
-@import "uikit_css/uikit.min.css";
+@import "scsportal-uikit.css";
 @import "reset";
 @import "flex_settings";
 @import "colors";
-
-
-
-
 
 *{
 	box-sizing: border-box;
@@ -46,8 +41,7 @@ header{
 	height:8vh;
 	font-family: 'Share Tech';
 	background-color: $b3-color;
-
-	.icon{width:80px;}
+	.icon{width:50px;}
 	.text{
 		margin:0 auto;
 		text-align:center;
