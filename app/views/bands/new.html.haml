@@ -31,5 +31,9 @@
       .uk-inline
         %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: user"}
         = f.text_field :pa_id, class: "uk-input field-input"
+    .field
+      %label.field-label メンバーを追加
+      .uk-inline
+        %input.uk-input.field-input#user-search-field{placeholder: "追加したいユーザー名を入力してください", type: "text", name: "keyword"}
     .actions.flex-center
       = f.submit "登録", class: "uk-button uk-button-primary form-button"
