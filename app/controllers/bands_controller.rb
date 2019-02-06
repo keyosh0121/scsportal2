@@ -6,6 +6,7 @@ class BandsController < ApplicationController
 
   # 申請フォームは後から他のやつを使い回すので大丈夫です。
   def new
+    @band = Band.new
   end
 
   def create
