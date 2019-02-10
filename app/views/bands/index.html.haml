@@ -1,0 +1,111 @@
+.uk-container.band-index-container
+  %legend.uk-legend.flex-center.page-title バンド一覧
+
+
+  %div{"uk-filter" => "target: .js-filter"}
+    .uk-grid-small.uk-grid-divider.uk-child-width-auto{"uk-grid" => ""}
+      %div
+        %ul.uk-subnav.uk-subnav-pill
+          %li.uk-active{"uk-filter-control" => ""}
+            %a{:href => "#"} All
+      %div
+        %ul.uk-subnav.uk-subnav-pill
+          %li{"uk-filter-control" => "filter: [data-band-type='normal']; group: data-band-type"}
+            %a{:href => "#"} 正規バンド
+          %li{"uk-filter-control" => "filter: [data-band-type='temporal']; group: data-band-type"}
+            %a{:href => "#"} 企画バンド
+      %div
+        %ul.uk-subnav.uk-subnav-pill
+          %li{"uk-filter-control" => "filter: [data-band-formation='mix-5']; group: data-band-formation"}
+            %a{:href => "#"} 混声5人
+          %li{"uk-filter-control" => "filter: [data-band-formation='boys-band']; group: data-band-formation"}
+            %a{:href => "#"} ヤロバン
+          %li{"uk-filter-control" => "filter: [data-band-formation='girls-band']; group: data-band-formation"}
+            %a{:href => "#"} ギャルバン
+
+    %ul.js-filter.uk-child-width-1-2.uk-text-center{class: "uk-child-width-1-3@m", "uk-grid" => ""}
+      %li{"data-band-type" => "normal", "data-band-formation" => "mix-5"}
+        .uk-card.uk-card-default.uk-card-body.index-band
+          .uk-container
+            %h3.index-band-name Pentatonix
+            %img.index-band-picture{"src" => "https://www.billboard.com/files/styles/article_main_image/public/media/Pentatonix-press-photo-cr-Vijat-Mohindra-2017-billboard-1548.jpg"}
+            %h3.index-band-description Pentatonix (abbreviated PTX) is an American a cappella group from Arlington, Texas, consisting of vocalists Scott Hoying, Mitch Grassi, Kirstin Maldonado, Kevin Olusola, and Matt Sallee. Avi Kaplan was formerly a member of the group; he was replaced by Sallee in 2017
+      %li{"data-band-type" => "normal", "data-band-formation" => "boys-band"}
+        .uk-card.uk-card-primary.uk-card-body.index-band
+          .uk-container
+            %h3.index-band-name Take 6
+            %img.index-band-picture{"src" => "https://assets.jazziz.com/uploads/2016/03/Take6-768x512.jpg"}
+            %h3.index-band-description Take 6 is an American a cappella gospel sextet formed in 1980 on the campus of Oakwood College in Huntsville, Alabama.[1] The group integrates jazz with spiritual and inspirational lyrics.
+      %li{"data-band-type" => "normal", "data-band-formation" => "mix-5"}
+        .uk-card.uk-card-default.uk-card-body.index-band
+          .uk-container
+            %h3.index-band-name Pentatonix
+            %img.index-band-picture{"src" => "https://www.billboard.com/files/styles/article_main_image/public/media/Pentatonix-press-photo-cr-Vijat-Mohindra-2017-billboard-1548.jpg"}
+            %h3.index-band-description Pentatonix (abbreviated PTX) is an American a cappella group from Arlington, Texas, consisting of vocalists Scott Hoying, Mitch Grassi, Kirstin Maldonado, Kevin Olusola, and Matt Sallee. Avi Kaplan was formerly a member of the group; he was replaced by Sallee in 2017
+      %li{"data-band-type" => "normal", "data-band-formation" => "mix-5"}
+        .uk-card.uk-card-default.uk-card-body.index-band
+          .uk-container
+            %h3.index-band-name Pentatonix
+            %img.index-band-picture{"src" => "https://www.billboard.com/files/styles/article_main_image/public/media/Pentatonix-press-photo-cr-Vijat-Mohindra-2017-billboard-1548.jpg"}
+            %h3.index-band-description Pentatonix (abbreviated PTX) is an American a cappella group from Arlington, Texas, consisting of vocalists Scott Hoying, Mitch Grassi, Kirstin Maldonado, Kevin Olusola, and Matt Sallee. Avi Kaplan was formerly a member of the group; he was replaced by Sallee in 2017
+      %li{"data-band-type" => "normal", "data-band-formation" => "girls-band"}
+        .uk-card.uk-card-secondary.uk-card-body.index-band
+          .uk-container
+            %h3.index-band-name Little Glee Monster
+            %img.index-band-picture{"src" => "https://cdn.fashionsnap.com/article/assets_c/2018/08/lgm20180831-001-thumb-750xauto-921712.jpg"}
+            %h3.index-band-description リトル グリー モンスター）は、日本のガールズボーカル音楽グループ。2013年結成。2014年に6人組ボーカルグループとしてメジャーデビュー。現在は5人で活動している。略称はリトグリ。所属事務所はワタナベエンターテインメント。レーベルはソニー・ミュージックレコーズ。
+      %li{"data-band-type" => "normal", "data-band-formation" => "girls-band"}
+        .uk-card.uk-card-secondary.uk-card-body.index-band
+          .uk-container
+            %h3.index-band-name Little Glee Monster
+            %img.index-band-picture{"src" => "https://cdn.fashionsnap.com/article/assets_c/2018/08/lgm20180831-001-thumb-750xauto-921712.jpg"}
+            %h3.index-band-description リトル グリー モンスター）は、日本のガールズボーカル音楽グループ。2013年結成。2014年に6人組ボーカルグループとしてメジャーデビュー。現在は5人で活動している。略称はリトグリ。所属事務所はワタナベエンターテインメント。レーベルはソニー・ミュージックレコーズ。
+      %li{"data-band-type" => "normal", "data-band-formation" => "boys-band"}
+        .uk-card.uk-card-primary.uk-card-body.index-band
+          .uk-container
+            %h3.index-band-name Take 6
+            %img.index-band-picture{"src" => "https://assets.jazziz.com/uploads/2016/03/Take6-768x512.jpg"}
+            %h3.index-band-description Take 6 is an American a cappella gospel sextet formed in 1980 on the campus of Oakwood College in Huntsville, Alabama.[1] The group integrates jazz with spiritual and inspirational lyrics.
+      %li{"data-band-type" => "normal", "data-band-formation" => "girls-band"}
+        .uk-card.uk-card-secondary.uk-card-body.index-band
+          .uk-container
+            %h3.index-band-name Little Glee Monster
+            %img.index-band-picture{"src" => "https://cdn.fashionsnap.com/article/assets_c/2018/08/lgm20180831-001-thumb-750xauto-921712.jpg"}
+            %h3.index-band-description リトル グリー モンスター）は、日本のガールズボーカル音楽グループ。2013年結成。2014年に6人組ボーカルグループとしてメジャーデビュー。現在は5人で活動している。略称はリトグリ。所属事務所はワタナベエンターテインメント。レーベルはソニー・ミュージックレコーズ。
+      %li{"data-band-type" => "normal", "data-band-formation" => "boys-band"}
+        .uk-card.uk-card-primary.uk-card-body.index-band
+          .uk-container
+            %h3.index-band-name Take 6
+            %img.index-band-picture{"src" => "https://assets.jazziz.com/uploads/2016/03/Take6-768x512.jpg"}
+            %h3.index-band-description Take 6 is an American a cappella gospel sextet formed in 1980 on the campus of Oakwood College in Huntsville, Alabama.[1] The group integrates jazz with spiritual and inspirational lyrics.
+      %li{"data-band-type" => "normal", "data-band-formation" => "mix-5"}
+        .uk-card.uk-card-default.uk-card-body.index-band
+          .uk-container
+            %h3.index-band-name Pentatonix
+            %img.index-band-picture{"src" => "https://www.billboard.com/files/styles/article_main_image/public/media/Pentatonix-press-photo-cr-Vijat-Mohindra-2017-billboard-1548.jpg"}
+            %h3.index-band-description Pentatonix (abbreviated PTX) is an American a cappella group from Arlington, Texas, consisting of vocalists Scott Hoying, Mitch Grassi, Kirstin Maldonado, Kevin Olusola, and Matt Sallee. Avi Kaplan was formerly a member of the group; he was replaced by Sallee in 2017
+      %li{"data-band-type" => "normal", "data-band-formation" => "boys-band"}
+        .uk-card.uk-card-primary.uk-card-body.index-band
+          .uk-container
+            %h3.index-band-name Take 6
+            %img.index-band-picture{"src" => "https://assets.jazziz.com/uploads/2016/03/Take6-768x512.jpg"}
+            %h3.index-band-description Take 6 is an American a cappella gospel sextet formed in 1980 on the campus of Oakwood College in Huntsville, Alabama.[1] The group integrates jazz with spiritual and inspirational lyrics.
+      %li{"data-band-type" => "normal", "data-band-formation" => "girls-band"}
+        .uk-card.uk-card-secondary.uk-card-body.index-band
+          .uk-container
+            %h3.index-band-name Little Glee Monster
+            %img.index-band-picture{"src" => "https://cdn.fashionsnap.com/article/assets_c/2018/08/lgm20180831-001-thumb-750xauto-921712.jpg"}
+            %h3.index-band-description リトル グリー モンスター）は、日本のガールズボーカル音楽グループ。2013年結成。2014年に6人組ボーカルグループとしてメジャーデビュー。現在は5人で活動している。略称はリトグリ。所属事務所はワタナベエンターテインメント。レーベルはソニー・ミュージックレコーズ。
+
+      %li{"data-band-type" => "temporal", "data-band-formation" => "mix-5"}
+        .uk-card.uk-card-default.uk-card-body.index-band
+          .uk-container
+            %h3.index-band-name こまだダンススタジオ
+      %li{"data-band-type" => "temporal", "data-band-formation" => "girls-band"}
+        .uk-card.uk-card-secondary.uk-card-body.index-band
+          .uk-container
+            %h3.index-band-name ギャルバンゴス
+      %li{"data-band-type" => "temporal", "data-band-formation" => "boys-band"}
+        .uk-card.uk-card-primary.uk-card-body.index-band
+          .uk-container
+            %h3.index-band-name Committed企画

@@ -1,3 +1,57 @@
 // Place all the styles related to the Bands controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// 以下バンド申請ページ
+.band-member{
+  position: relative;
+  &_year{}
+  &_name{}
+  &_mic-number{
+    position: absolute;
+    top: 10px;
+    right: 30px;
+  }
+  &_remove-button{
+    position: absolute;
+    top: 10px;
+    right: 0px;
+  }
+}
+
+
+#member-search-result, #master-search-result, #pa-search-result{
+  background-color: $light_gray;
+  width: 100%;
+  position: absolute;
+  z-index: 100;
+}
+
+
+
+// 以下バンド一覧ページ
+.band-index-container{
+  margin-bottom: 32px;
+}
+
+.band-navigation{
+  margin-bottom: 10px;
+}
+
+.index-band{
+  &-picture{
+    width: 100px;
+    float: left;
+  }
+  &-name{
+    font-size: 20px;
+  }
+  &-description{
+    height: 50px;
+    max-width: 170px;
+    display: inline-block;
+    overflow: hidden;
+    // padding-left: 1px;
+  }
+}

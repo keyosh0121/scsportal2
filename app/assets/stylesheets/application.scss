@@ -20,6 +20,7 @@
 @import "scsportal-uikit.css";
 @import "flex_settings";
 @import "form";
+@import "bands";
 
 *{
 	box-sizing: border-box;
@@ -49,6 +50,7 @@ header{
 		text-align:center;
 		font-size:5vh;
 		color: $main_color;
+		text-decoration: none;
 	}
 }
 
@@ -77,3 +79,9 @@ footer{
 .content{
 	min-height: calc(100vh - 10vh - 20vh);
 }
+
+.page-title{
+	margin-top: 32px;
+	margin-bottom: 16px;
+}
+
