@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :comments
   resources :presentations
   resources :events
-  resources :room_usages
+  resources :room_usages, only:[:index,:new]
   resources :mics
   resources :bands
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

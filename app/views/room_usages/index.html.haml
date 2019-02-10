@@ -1,0 +1,25 @@
+.uk-container.uk-width-1-1
+	.uk-width-2-3@s.uk-margin-auto
+		%legend.uk-legend 部屋・会議室利用一覧
+		%table.uk-table.uk-table-striped.uk-table-small
+			%thead
+				%tr
+					%th 申請者
+					%th バンド/セクション
+					%th 利用部屋
+					%th 利用日
+					%th 時限
+					%th 編集
+			%tbody
+				/ each(@room_usage)
+				%tr
+					%td 申請者
+					%td バンド/セクション
+					%td 利用部屋
+					%td 利用日
+					%td 時限
+					%td 
+						/ if room_usage.user = self && self.permission = 2
+						%a.uk-icon{'uk-icon':'close'} 
+
+      
