@@ -1,3 +1,7 @@
+@import "scaffolds";
+@import "reset";
+@import "colors";
+@import "flash";
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,11 +17,9 @@
  *= require_tree .
  *= require_self
  */
-
 @import "scsportal-uikit.css";
-@import "reset";
 @import "flex_settings";
-@import "colors";
+@import "form";
 
 *{
 	box-sizing: border-box;
@@ -40,13 +42,13 @@
 header{
 	height:8vh;
 	font-family: 'Share Tech';
-	background-color: $b3-color;
+	background-color: $b3_color;
 	.icon{width:50px;}
 	.text{
 		margin:0 auto;
 		text-align:center;
 		font-size:5vh;
-		color: $main-color;
+		color: $main_color;
 	}
 }
 
@@ -65,7 +67,7 @@ footer{
 	flex-shrink: 0;
 	#footer-text{
 		text-align: center;
-		color: $main-color;
+		color: $main_color;
 		margin: 20px 0;
 	}
 }
