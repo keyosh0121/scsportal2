@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  root to: 'users#index'
+  root to: 'users#show'
   devise_for :users
+  resources :users, only: [:show] do
+    collection do
+      get 'search'
+    end
+  end
   resources :event_entries
   resources :reviews
   resources :comments
