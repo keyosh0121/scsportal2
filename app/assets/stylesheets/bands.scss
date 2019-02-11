@@ -66,10 +66,12 @@
     font-size: 20px;
   }
   &-description{
-    height: 50px;
+    font-size: 13px;
+    height: 55px;
     max-width: 170px;
     display: inline-block;
     overflow: hidden;
+    margin: 0px;
     // padding-left: 1px;
   }
 }

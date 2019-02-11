@@ -1,5 +1,6 @@
 @import "scaffolds";
 @import "reset";
+@import "scsportal-uikit";
 @import "colors";
 @import "flash";
 /*
@@ -17,7 +18,6 @@
  *= require_tree .
  *= require_self
  */
-@import "scsportal-uikit";
 @import "flex_settings";
 @import "form";
 @import "room_usages";
