@@ -1,7 +1,42 @@
 .uk-container.uk-width-1-1
-	.uk-width-2-3@s.uk-margin-auto
+	.uk-width-2-3@s.uk-margin-auto.uk-padding-small
 		%legend.uk-legend 部屋・会議室利用一覧
-		%table.uk-table.uk-table-striped.uk-table-small
+		%ul.uk-margin-top{'uk-accordion': 'multiple: true'}
+			%li
+				%a.uk-accordion-title.uk-padding-small.uk-background-muted 利用申請
+				.uk-accordion-content.uk-width-1-1
+					.uk-text-meta.uk-width-1-1 ①バンドを選択してください
+					%select.uk-select
+						-if @current_user
+							- @current_user.bands.each do |bd|
+								%option {#bd.name}
+							- @current_user.sections.each do |sc|
+								%option {#sc.name}
+					.uk-text-meta.uk-width-1-1 ①利用する部屋を選択してください
+					.uk-width-1-1.uk-flex.uk-flex-wrap.uk-child-width-1-3
+						- Room.practice_rooms.each do |rm|
+							.radio.uk-child-width-expand
+								%input{id: "#{rm.name}", type: 'radio',style: 'display:none;'} 
+								%label.uk-button.uk-button-default.uk-padding-remove-horizontal{for: "#{rm.name}",style: 'font-size:0.85em'} #{rm.name}
+					
+					.uk-text-meta.uk-width-1-1  ②日時を選択してください
+					.uk-width-1-1.uk-flex.uk-flex-wrap.uk-child-width-1-3
+						- (Date.today..(Date.today + 5)).each do |date|
+							.radio
+								%input{id: "#{date}", type: 'radio',style: 'display:none;'} 
+								%label.uk-button.uk-button-default.uk-width-1-1.uk-padding-remove-horizontal{for: "#{date}",style: 'font-size:0.85em'} 
+									#{date.strftime("%m/%d")}  
+									= "(本日)" if date == Date.today
+					.uk-text-meta.uk-width-1-1  ③時限を選択してください
+					.uk-width-1-1.uk-flex.uk-flex-wrap.uk-child-width-1-3
+						- Period.all.each do |pr|
+							.radio
+								%input{id: "#{pr.name}", type: 'radio',style: 'display:none;'} 
+								%label.uk-button.uk-button-default.uk-width-1-1{for: "#{pr.name}",style: 'font-size:0.85em'} #{pr.name}
+					.uk-margin-small-top
+						%button.uk-button.uk-button-danger 申請
+									
+		%table.uk-table.uk-table-striped.uk-table-small{style: 'font-size:0.85em'}
 			%thead
 				%tr
 					%th 申請者
@@ -11,15 +46,22 @@
 					%th 時限
 					%th 編集
 			%tbody
-				/ each(@room_usage)
-				%tr
-					%td 申請者
-					%td バンド/セクション
-					%td 利用部屋
-					%td 利用日
-					%td 時限
-					%td 
-						/ if room_usage.user = self && self.permission = 2
-						%a.uk-icon{'uk-icon':'close'} 
+				- unless RoomUsage.any?
+					%tr 
+						%td{colspan:6} データがありません
+				- RoomUsage.all.each do |ru|
+					%tr
+						%td #{ru.user.name}
+						%td #{ru.band.name}#{ru.section.name} 
+						%td #{ru.room.name}
+						%td #{ru.date.strftime('%Y/%M/%D')}
+						%td #{ru.period.name}
+						%td 
+							-if ru.user == @current_user
+								%a.uk-icon{'uk-icon':'close'} 
+								}
 
-      
+
+
+	
+	
