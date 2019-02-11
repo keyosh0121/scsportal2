@@ -5394,7 +5394,8 @@ ul.uk-nav-sub {
   left: -270px;
   /* 2 */
   box-sizing: border-box;
-  width: 270px;
+  /*edited width for mobile by futa. was 270*/
+  width: 170px;
   padding: 20px 20px;
   background: #222;
   /* 3 */
