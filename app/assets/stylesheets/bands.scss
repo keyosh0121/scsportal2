@@ -35,8 +35,26 @@
   margin-bottom: 32px;
 }
 
-.band-navigation{
+#pc-band-navigator{
   margin-bottom: 10px;
+}
+
+.mobile-band-navigator-button{
+  background-color: $white;
+  position: fixed;
+  top: 70px;
+  right: 30px;
+  display:block;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  border: 1px solid;
+  z-index: 999;
+}
+
+.band-search-icon{
+  position: absolute;
+  right: 3px;
 }
 
 .index-band{
@@ -55,3 +73,16 @@
     // padding-left: 1px;
   }
 }
+
+.mix-6{
+  background-color: $alert-color;
+}
+
+@media screen and (max-width: 480px){
+  #pc-band-navigator {display: none;}
+}
+
+@media screen and (min-width:481px) {
+  .mobile-band-navigator-button {display:none;}
+}
+

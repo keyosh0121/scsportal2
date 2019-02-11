@@ -1,5 +1,6 @@
 $(function() {
 
+// ここからはバンド申請画面のjs //
   // 以下はバンドメンバー追加用 //
   // メンバー検索の結果用HTML生成
   function memberSearchResult(users){
@@ -239,5 +240,34 @@ $(function() {
   });
 
 
+
+// ここからはバンド一覧画面のjs //
+  $(".all-band-button-mobile").on("click", function(){
+    $(".all-band-button-pc").click();
+  });
+
+  $(".normal-button-mobile").on("click", function(){
+    $(".normal-button-pc").click();
+  });
+
+  $(".temporal-button-mobile").on("click", function(){
+    $(".temporal-button-pc").click();
+  });
+
+  $(".mix-5-button-mobile").on("click", function(){
+    $(".mix-5-button-pc").click();
+  });
+
+  $(".mix-6-button-mobile").on("click", function(){
+    $(".mix-6-button-pc").click();
+  });
+
+  $(".boys-band-button-mobile").on("click", function(){
+    $(".boys-band-button-pc").click();
+  });
+
+  $(".girls-band-button-mobile").on("click", function(){
+    $(".girls-band-button-pc").click();
+  });
 
 });
