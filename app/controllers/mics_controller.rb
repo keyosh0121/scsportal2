@@ -28,5 +28,6 @@ class MicsController < ApplicationController
 
   # 分割順番選択画面
   def order
+    @mic = Mic.new(id: 1)
   end
 end
