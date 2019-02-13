@@ -4,7 +4,6 @@ ActiveAdmin.register Period do
 
   index do
     selectable_column
-    id_column
     column :name
     column :start_time
     column :end_time

@@ -4,7 +4,6 @@ ActiveAdmin.register Room do
 
   index do
     selectable_column
-    id_column
     column :name
     column :room_type
   end
