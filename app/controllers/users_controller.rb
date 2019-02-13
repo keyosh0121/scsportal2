@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :user_approval?, only: [:show]
   def show
   end
 

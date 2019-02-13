@@ -22,5 +22,11 @@ module Scsportal2
     config.generators do |g|
      g.stylesheets false
     end
+
+    config.to_prepare do
+      Devise::SessionsController.skip_before_action :user_approval?, only: [:destroy]
+      Devise::RegistrationsController.skip_before_action :user_approval?, only: [:edit, :update]
+    end
+
   end
 end
