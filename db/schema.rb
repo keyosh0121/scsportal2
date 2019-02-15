@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2019_02_14_072307) do
   create_table "bands", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", null: false
-    t.integer "year", null: false
+    t.string "band_name", null: false
+    t.integer "band_year", null: false
     t.text "description"
     t.string "web_url"
     t.integer "band_type", null: false
@@ -159,8 +159,10 @@ ActiveRecord::Schema.define(version: 2019_02_14_072307) do
     t.date "date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "room_id", null: false
     t.index ["band_id"], name: "index_room_usages_on_band_id"
     t.index ["period_id"], name: "index_room_usages_on_period_id"
+    t.index ["room_id"], name: "index_room_usages_on_room_id"
     t.index ["section_id"], name: "index_room_usages_on_section_id"
     t.index ["user_id"], name: "index_room_usages_on_user_id"
   end
@@ -183,10 +185,10 @@ ActiveRecord::Schema.define(version: 2019_02_14_072307) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "user_name", null: false
     t.string "email", null: false
     t.string "encrypted_password", null: false
-    t.integer "year", null: false
+    t.integer "user_year", null: false
     t.string "uni", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -200,6 +202,7 @@ ActiveRecord::Schema.define(version: 2019_02_14_072307) do
     t.datetime "updated_at", null: false
     t.bigint "section_id", null: false
     t.bigint "authority_id", null: false
+    t.string "gender"
     t.index ["authority_id"], name: "index_users_on_authority_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -230,6 +233,7 @@ ActiveRecord::Schema.define(version: 2019_02_14_072307) do
   add_foreign_key "reviews", "users"
   add_foreign_key "room_usages", "bands"
   add_foreign_key "room_usages", "periods"
+  add_foreign_key "room_usages", "rooms"
   add_foreign_key "room_usages", "sections"
   add_foreign_key "room_usages", "users"
   add_foreign_key "sections", "authorities"

@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   belongs_to :section
-  validates :year, presence: true
-  validates :name, presence: true
+  belongs_to :authority
+  validates :user_year, presence: true
+  validates :user_name, presence: true
   validates :authority_id, presence: true
   validates :uni, presence: true
   has_many :mics, dependent: :destroy

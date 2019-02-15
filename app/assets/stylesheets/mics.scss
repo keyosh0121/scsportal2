@@ -1,7 +1,6 @@
 // Place all the styles related to the Mics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import "colors";
 
 /*マイク練分割ボタン*/
 @mixin button($background, $border, $color) {
@@ -26,7 +25,7 @@
     color: white;
   }
   &:visited {
-  	color: white;
+    color: white;
   }
 }
 
@@ -46,7 +45,7 @@ a.uk-accordion-title {
   height: 60px;
   line-height: 60px;
   &:hover{
-  	background-color: transparent;
+    background-color: transparent;
   }
 }
 
@@ -55,7 +54,7 @@ a>.belt {
 }
 
 .not-define {
-	color: red;
+  color: red;
 }
 
 input {
@@ -77,8 +76,8 @@ a.mic-button {
   border: 1px solid transparent;
   //border-radius: $radius-px;
   .flex-center {
-  	color: white;
-  	text-decoration: none;
+    color: white;
+    text-decoration: none;
   }
 }
 
@@ -162,9 +161,9 @@ a.mic-button {
         }
 
         .approve-wrap {
-		  background: coral;//未承認
-		  //background: #5cb85c;//承認
-		  //background: orangered;//キャンセル
+          background: coral;//未承認
+          //background: #5cb85c;//承認
+          //background: orangered;//キャンセル
           grid-row: 1 / 2;
           grid-column: 4 / 5;
         }
@@ -181,8 +180,8 @@ a.mic-button {
           background: orange;
         }
 
-		/*削除ボタン。使うかわからん*/
-		/*
+        /*削除ボタン。使うかわからん*/
+        /*
         .delete-wrap {
           background: red;
           border-bottom-right-radius: $radius-px;

@@ -2,7 +2,7 @@
   .flex-center
     = @mic.date.to_s + " " + @mic.period.name
   .flex-center
-    = @mic.band.name
+    = @mic.band.band_name
 
 .uk-padding-remove-vertical
   - split_mic_count(@mic).times do |i| 

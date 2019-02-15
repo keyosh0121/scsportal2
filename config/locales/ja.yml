@@ -204,11 +204,15 @@ ja:
       short: "%y/%m/%d %H:%M"
     pm: 午後
   attributes:
-    name: 名前
+    user_name: 名前
+    user_year: 入会年度
     email: メールアドレス
     password: パスワード
-    year: 入会年度
     uni: 大学名
     section: セクション
-
+    band_name: バンド名
+    band_year: 結成年
+    description: バンドの説明
+    master_id: バンマス
+    pa_id: PA
 

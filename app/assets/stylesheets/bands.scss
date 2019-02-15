@@ -1,3 +1,90 @@
 // Place all the styles related to the Bands controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// 以下バンド申請ページ
+.band-member{
+  position: relative;
+  &_year{}
+  &_name{}
+  &_mic-number{
+    position: absolute;
+    top: 10px;
+    right: 30px;
+  }
+  &_remove-button{
+    position: absolute;
+    top: 10px;
+    right: 0px;
+  }
+}
+
+
+#member-search-result, #master-search-result, #pa-search-result{
+  background-color: $light_gray;
+  width: 100%;
+  position: absolute;
+  z-index: 100;
+}
+
+
+
+// 以下バンド一覧ページ
+.band-index-container{
+  margin-bottom: 32px;
+}
+
+#pc-band-navigator{
+  margin-bottom: 10px;
+}
+
+.mobile-band-navigator-button{
+  background-color: $white;
+  position: fixed;
+  top: 70px;
+  right: 30px;
+  display:block;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  border: 1px solid;
+  z-index: 999;
+}
+
+.band-search-icon{
+  position: absolute;
+  right: 3px;
+}
+
+.index-band{
+  &-picture{
+    width: 100px;
+    float: left;
+  }
+  &-name{
+    font-size: 20px;
+  }
+  &-description{
+    font-size: 13px;
+    height: 55px;
+    max-width: 170px;
+    display: inline-block;
+    overflow: hidden;
+    margin: 0px;
+    // padding-left: 1px;
+  }
+}
+
+.mix-6{
+  background-color: $alert-color;
+}
+
+@media screen and (max-width: 480px){
+  #pc-band-navigator {display: none;}
+}
+
+@media screen and (min-width:481px) {
+  .mobile-band-navigator-button {display:none;}
+}
+
