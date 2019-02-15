@@ -56,29 +56,5 @@
               = link_to mic_path(mic), method: 'PATCH', data: { confirm: "バンマスへ連絡します。(未実装)"}, class: "contact-wrap mic-button button-edge-bottom-right" do
                 .flex-center= "バンマスへ"
                 .flex-center= "連絡" #TODO: クリックでメール送信画面
-              
 
-/マイク練期限前・期限後、マイク練当日のアコーディオンの色を変更
-/外部ファイルに記述予定、一旦ベタ書きします
-:javascript
-  $(document).ready(function() {
-    today = new Date();
-    today_formatted = today.getFullYear() + "-" + ("00"+(today.getMonth()+1)).slice(-2) + "-" + ("00"+(today.getDate())).slice(-2);
-
-    deadline_formatted = today.getFullYear() + "-" + ("00"+(today.getMonth()+1)).slice(-2) + "-" + ("00"+(today.getDate()+7)).slice(-2);
-
-    for(var i = 0; i < $('.uk-accordion-title').size(); i++) {
-      var $accordion_date = $('.uk-accordion-title').eq(i).text().replace(/\r?\n/g, '');
-
-      if ($accordion_date === today_formatted) {
-        $('.day-wrap').eq(i).css("background", "#690000");
-        
-      } else if ($accordion_date >= today_formatted && $accordion_date <= deadline_formatted) {
-        $('.day-wrap').eq(i).css("background", "#222854");
-      } else if ($accordion_date > deadline_formatted){
-        $('.day-wrap').eq(i).css("background", "#626894");
-      } else {
-        $('.day-wrap').eq(i).css("background", "#C2C8F4");
-      }
-    }
-  });
+  
