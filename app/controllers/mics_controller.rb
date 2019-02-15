@@ -28,6 +28,11 @@ class MicsController < ApplicationController
 
   # 分割順番選択画面
   def order
-    @mic = Mic.new(id: 1)
+    @mic = Mic.find(params[:id])
+  end
+
+  def order_update
+    @mic = Mic.find(params[:id])
+    @mic.update_attributes(order: params[:order])
   end
 end

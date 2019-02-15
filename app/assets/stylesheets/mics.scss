@@ -25,12 +25,19 @@
     background: $b2_color;
     color: white;
   }
+  &:visited {
+  	color: white;
+  }
 }
 
 .link-button-pressed {
   @include button(silver, #E0E0E0, white);
 }
 
+.link-button-padding {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 
 /*マイク練一覧*/
 $radius-px: 3px;
