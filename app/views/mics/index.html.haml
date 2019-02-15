@@ -1,26 +1,84 @@
-%h2 マイク練画面モック(音響用)
+.uk-text-center.uk-text-large マイク練一覧画面(音響用)
 
+.mic-wrap(uk-accordion="multiple: true")
+  - mic_date = @mics.map(&:date).uniq
+  - mic_date.each do |date| 
+    .day-wrap
+      %a{href: "#", class: "uk-accordion-title"}
+        .belt= date
+      .uk-accordion-content.content-wrap
+        - mic_period = @mics.where(date: date).map(&:period).uniq
+        - mic_period.each do |period| 
+          /限表示
+          .time-wrap
+            = "== "+period.name+" =="
 
-- mic_date = @mics.map(&:date).uniq
-- mic_date.each do |date| 
-  = date #日付表示
-  - @mics.where(date: date).each do |mic| #該当日付のマイク練表示
-    = mic.period #限表示
-    = mic.order if mic.order #分割あれば順番表示
+          /各マイク練表示
+          - @mics.where(date: date, period: period).each do |mic| 
+            /同じ限のマイク練表示
+            .split-wrap
+              /マイク練順番
+              .order-wrap.flex-center
+                - if mic.order
+                  = mic.order
+                - else
+                  .not-define= "未定"
 
-    - if mic.room
-      = mic.room #部屋登録用リンク貼る
-    - else
-      = "部屋未定" #部屋登録用リンク貼る
+              /部屋ボタン  
+              .room-wrap.flex-center
+                - if mic.room
+                  = mic.room.name
+                - else
+                  .not-define= "部屋未定" #TODO:部屋登録用モーダル作る
 
-    = mic.band.name
-    = mic.band.pa.name if mic.band.band_type == 0
-    = mic.pa_attendance if mic.band.band_type == 0
-    = mic.band.master.name #連絡用リンク貼る
+              /備考ボタン
+              .remark-wrap.flex-center
+                - if mic.remark
+                  %input{type: "button", value: "備考あり", onclick: "alert('#{mic.remark}')" }
+                - else
+                  = "備考なし"
+                
+              /バンド名
+              .band-wrap.flex-center
+                = mic.band.name
 
-    = link_to "削除", mic_path(mic), method: 'DELETE', data: { confirm: "本当に削除しますか？"}
-    
-    - if mic.apply_status == 0 
-      = link_to "承認", mic_path(mic), method: 'PATCH', data: { confirm: "本当に承認しますか？" }
-    - else
-      = "承認済み" 
+              /ステータス変更ボタン(削除をここでできるようにする)
+              /.approve-wrap.mic-button.flex-center.button-edge-top-right
+              = link_to mic_path(mic), method: 'PATCH', data: { confirm: "ステータスを変更します(未実装)" },  class: "approve-wrap mic-button button-edge-top-right flex-center" do
+                .flex-center= mic_status_string(mic)
+
+              /PA出席ボタン
+              = link_to  mic_path(mic), method: 'PATCH', data: { confirm: "PA出席を変更します(未実装)" }, class: "pa-wrap mic-button" do
+                .flex-center= pa_attendance_string(mic)
+                .flex-center= "PA-Name"#mic.band.pa.name#paのリレーション組んでないので動きません
+              
+              /連絡ボタン
+              = link_to mic_path(mic), method: 'PATCH', data: { confirm: "バンマスへ連絡します。(未実装)"}, class: "contact-wrap mic-button button-edge-bottom-right" do
+                .flex-center= "バンマスへ"
+                .flex-center= "連絡" #TODO: クリックでメール送信画面
+              
+
+/マイク練期限前・期限後、マイク練当日のアコーディオンの色を変更
+/外部ファイルに記述予定、一旦ベタ書きします
+:javascript
+  $(document).ready(function() {
+    today = new Date();
+    today_formatted = today.getFullYear() + "-" + ("00"+(today.getMonth()+1)).slice(-2) + "-" + ("00"+(today.getDate())).slice(-2);
+
+    deadline_formatted = today.getFullYear() + "-" + ("00"+(today.getMonth()+1)).slice(-2) + "-" + ("00"+(today.getDate()+7)).slice(-2);
+
+    for(var i = 0; i < $('.uk-accordion-title').size(); i++) {
+      var $accordion_date = $('.uk-accordion-title').eq(i).text().replace(/\r?\n/g, '');
+
+      if ($accordion_date === today_formatted) {
+        $('.day-wrap').eq(i).css("background", "#690000");
+        
+      } else if ($accordion_date >= today_formatted && $accordion_date <= deadline_formatted) {
+        $('.day-wrap').eq(i).css("background", "#222854");
+      } else if ($accordion_date > deadline_formatted){
+        $('.day-wrap').eq(i).css("background", "#626894");
+      } else {
+        $('.day-wrap').eq(i).css("background", "#C2C8F4");
+      }
+    }
+  });
