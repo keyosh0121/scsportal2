@@ -6,7 +6,7 @@ $(function() {
   deadline_formatted = today.getFullYear() + "-" + ("00" + (today.getMonth() + 1)).slice(-2) + "-" + ("00" + (today.getDate() + 7)).slice(-2);
 
   /*日付に合わせてaccordion配色変更*/
-  for (var i = 0; i < $('.uk-accordion-title').size(); i++) {
+  for (var i = 0; i < $('.uk-accordion-title').length; i++) {
     var $accordion_date = $('.uk-accordion-title').eq(i).text().replace(/\r?\n/g, '');
     var $accordion = $('.day-wrap').eq(i)
     
