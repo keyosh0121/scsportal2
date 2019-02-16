@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root to: 'users#show'
   devise_for :users
   resources :users, only: [:show] do
