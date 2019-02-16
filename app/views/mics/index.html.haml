@@ -1,6 +1,6 @@
 .uk-text-center.uk-text-large マイク練一覧画面(音響用)
 
-.mic-wrap(uk-accordion="multiple: true")
+.uk-container.uk-width-2-3@s.uk-margin-auto.uk-padding-small(uk-accordion="multiple: true")
   - mic_date = @mics.map(&:date).uniq
   - mic_date.each do |date| 
     .day-wrap

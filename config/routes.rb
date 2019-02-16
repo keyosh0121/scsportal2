@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   resources :mics
   resources :bands
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get '/order/:id', to: 'mics#order'
-  post '/order/:id/:order', to: 'mics#order_update'
+  get '/mics/order/:id', to: 'mics#order'
+  post 'mics/order/:id/:order', to: 'mics#order_update'
 end
