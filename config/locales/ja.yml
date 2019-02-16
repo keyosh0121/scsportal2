@@ -210,9 +210,13 @@ ja:
     password: パスワード
     uni: 大学名
     section: セクション
+    authority: 権限
+    gender: 性別
     band_name: バンド名
     band_year: 結成年
     description: バンドの説明
     master_id: バンマス
     pa_id: PA
+    start_time: 開始時刻
+    end_time: 終了時刻
 
