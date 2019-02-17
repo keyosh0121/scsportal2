@@ -1,7 +1,9 @@
 # きょうすけ担当
 class BandsController < ApplicationController
+  before_action :set_band, only: [:edit, :update]
   # バンド一覧画面
   def index
+    @bands = Band.all
   end
 
   # 申請フォームは後から他のやつを使い回すので大丈夫です。
@@ -13,7 +15,7 @@ class BandsController < ApplicationController
     @band = new_band(band_params)
     if @band.save
       @band_members = new_members(band_params, @band)
-      redirect_to root_path, notice: 'チャットを作成しました'
+      redirect_to root_path, notice: 'バンドを作成しました'
     else
       render :new
     end
@@ -78,6 +80,10 @@ class BandsController < ApplicationController
         band_members.push(band_member)
       end
     end
+  end
+
+  def set_band
+    @band = Band.find(params[:id])
   end
 
 end
