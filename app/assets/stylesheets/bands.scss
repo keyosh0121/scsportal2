@@ -76,9 +76,13 @@
   }
 }
 
-.mix-6{
-  background-color: $alert-color;
-}
+.boys-band{background-color: $uk-blue;}
+.girls-band{background-color: $light_pink;}
+.mix-3{background-color: $light_gray;}
+.mix-4{background-color: $maroon;}
+.mix-5{background-color: $uk-black;}
+.mix-6{background-color: $white;}
+.mix-7{background-color: $alert_color;}
 
 @media screen and (max-width: 480px){
   #pc-band-navigator {display: none;}

@@ -66,12 +66,23 @@
 
 
     %ul.js-filter.uk-child-width-1-2.uk-text-center{class: "uk-child-width-1-3@m", "uk-grid" => ""}
-      %li{"data-band-type" => "regular", "data-band-formation" => "mix-6"}
-        .uk-card.uk-card-body.index-band.mix-6
-          .uk-container
-            %h3.index-band-name Slixs
-            %img.index-band-picture{"src" => "http://www.acappellazone.com/fileadmin/user_upload/ACAPPELLAZONE/TOP_ACTS/Slixs/SLIXS-hagen-wolf-3_slider.jpg"}
-            %h3.index-band-description SLIXS (bis Ende Januar 2012 Stouxingers) ist ein deutsches A-cappella-Sextett aus Berlin, Dresden, Leipzig und Halle. Katharina Debus, Michael Eimann, Gregorio D’Clouet Hernández, Karsten Müller, Thomas Piontek und Konrad Zeiner sind feste Mitglieder des Ensembles und verfolgen neben ihrer Zusammenarbeit
+      -@regular_bands.each do |regular_band|
+        %li{"data-band-type" => "regular", "data-band-formation" => "#{band_formation(regular_band)}"}
+          = link_to regular_band_path(regular_band) do
+            .uk-card.uk-card-body.index-band{class: "#{band_formation(regular_band)}"}
+              .uk-container
+                %h3.index-band-name= regular_band.band_name
+                %img.index-band-picture{"src" => "http://www.acappellazone.com/fileadmin/user_upload/ACAPPELLAZONE/TOP_ACTS/Slixs/SLIXS-hagen-wolf-3_slider.jpg"}
+                %h3.index-band-description= regular_band.description
+          }
+      -@temporal_bands.each do |temporal_band|
+        %li{"data-band-type" => "temporal", "data-band-formation" => "#{band_formation(regular_band)}"}
+          = link_to temporal_band_path(temporal_band) do
+            .uk-card.uk-card-body.index-band{class: "#{band_formation(regular_band)}"}
+              .uk-container
+                %h3.index-band-name= temporal_band.band_name
+
+
       %li{"data-band-type" => "regular", "data-band-formation" => "mix-5"}
         .uk-card.uk-card-default.uk-card-body.index-band
           .uk-container
@@ -99,13 +110,13 @@
 
 
       %li{"data-band-type" => "regular", "data-band-formation" => "girls-band"}
-        .uk-card.uk-card-secondary.uk-card-body.index-band
+        .uk-card.uk-card-secondary.uk-card-body.index-band.girls-band
           .uk-container
             %h3.index-band-name Little Glee Monster
             %img.index-band-picture{"src" => "https://cdn.fashionsnap.com/article/assets_c/2018/08/lgm20180831-001-thumb-750xauto-921712.jpg"}
             %h3.index-band-description リトル グリー モンスター）は、日本のガールズボーカル音楽グループ。2013年結成。2014年に6人組ボーカルグループとしてメジャーデビュー。現在は5人で活動している。略称はリトグリ。所属事務所はワタナベエンターテインメント。レーベルはソニー・ミュージックレコーズ。
       %li{"data-band-type" => "regular", "data-band-formation" => "girls-band"}
-        .uk-card.uk-card-secondary.uk-card-body.index-band
+        .uk-card.uk-card-secondary.uk-card-body.index-band.girls-band
           .uk-container
             %h3.index-band-name Little Glee Monster
             %img.index-band-picture{"src" => "https://cdn.fashionsnap.com/article/assets_c/2018/08/lgm20180831-001-thumb-750xauto-921712.jpg"}
@@ -117,7 +128,7 @@
             %img.index-band-picture{"src" => "https://assets.jazziz.com/uploads/2016/03/Take6-768x512.jpg"}
             %h3.index-band-description Take 6 is an American a cappella gospel sextet formed in 1980 on the campus of Oakwood College in Huntsville, Alabama.[1] The group integrates jazz with spiritual and inspirational lyrics.
       %li{"data-band-type" => "regular", "data-band-formation" => "girls-band"}
-        .uk-card.uk-card-secondary.uk-card-body.index-band
+        .uk-card.uk-card-secondary.uk-card-body.index-band.girls-band
           .uk-container
             %h3.index-band-name Little Glee Monster
             %img.index-band-picture{"src" => "https://cdn.fashionsnap.com/article/assets_c/2018/08/lgm20180831-001-thumb-750xauto-921712.jpg"}
@@ -141,7 +152,7 @@
             %img.index-band-picture{"src" => "https://assets.jazziz.com/uploads/2016/03/Take6-768x512.jpg"}
             %h3.index-band-description Take 6 is an American a cappella gospel sextet formed in 1980 on the campus of Oakwood College in Huntsville, Alabama.[1] The group integrates jazz with spiritual and inspirational lyrics.
       %li{"data-band-type" => "regular", "data-band-formation" => "girls-band"}
-        .uk-card.uk-card-secondary.uk-card-body.index-band
+        .uk-card.uk-card-secondary.uk-card-body.index-band.girls-band
           .uk-container
             %h3.index-band-name Little Glee Monster
             %img.index-band-picture{"src" => "https://cdn.fashionsnap.com/article/assets_c/2018/08/lgm20180831-001-thumb-750xauto-921712.jpg"}

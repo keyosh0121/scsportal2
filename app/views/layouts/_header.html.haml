@@ -21,7 +21,7 @@
 						%span.uk-margin-small-right{'uk-icon': 'sign-in'}
 						練習部屋・会議室申請
 				%li.uk-margin-small-top
-					= link_to new_regular_bands_path do
+					= link_to new_regular_band_path do
 						%span.uk-margin-small-right{'uk-icon': 'users'}
 						バンド申請
 				%li.uk-margin-small-top
@@ -30,7 +30,7 @@
 						講評・コメントの入力
 				%li.uk-nav-divider
 				%li.uk-margin-small-top
-					%a
+					= link_to admin_root_path do
 						%span.uk-margin-small-right{'uk-icon': 'settings'}
 						管理者ポータルへ
 

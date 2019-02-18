@@ -14,11 +14,8 @@ Rails.application.routes.draw do
   resources :events
   resources :room_usages, only:[:index,:new]
   resources :mics
-  resources :bands do
-    collection do
-      get 'new_regular'
-      get 'new_temporal'
-    end
-  end
+  resources :bands, only:[:index]
+  resources :regular_bands, only:[:new, :create, :show, :edit, :update]
+  resources :temporal_bands, only:[:new, :create, :show, :edit, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

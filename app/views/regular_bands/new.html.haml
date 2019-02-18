@@ -1,10 +1,10 @@
 .flex-center
-  = form_for @band do |f|
-    - if @band.errors.any?
+  = form_for @regular_band do |f|
+    - if @regular_band.errors.any?
       #error_explanation
-        %h2= "#{@band.errors.full_messages.count}件のエラーが発生たため、バンドは登録されませんでした："
+        %h2= "#{@regular_band.errors.full_messages.count}件のエラーが発生たため、バンドは登録されませんでした："
         %ul
-          - @band.errors.full_messages.each do |message|
+          - @regular_band.errors.full_messages.each do |message|
             %li= message
     =f.hidden_field :type, value: "RegularBand"
     %legend.uk-legend.form-title.flex-center 正規バンド登録
