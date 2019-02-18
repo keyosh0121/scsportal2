@@ -6,42 +6,20 @@
         %ul
           - @band.errors.full_messages.each do |message|
             %li= message
-    =f.hidden_field :band_type, value: 0
-    %legend.uk-legend.form-title.flex-center 正規バンド登録
+    =f.hidden_field :type, value: "TemporalBand"
+    %legend.uk-legend.form-title.flex-center 企画バンド登録
     .field
       = f.label :バンド名, class: "field-label"
       .uk-inline
         %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: tag"}
         = f.text_field :band_name, autofocus: true, class: "uk-input field-input"
     .field
-      = f.label :結成年, class: "field-label"
-      .uk-inline
-        %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: calendar"}
-        = f.text_field :band_year, class: "uk-input field-input"
-    .field
-      = f.label :バンドの説明, class: "field-label"
-      .uk-inline
-        %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: pencil"}
-        = f.text_field :description, autocomplete: "off", class: "uk-input field-input"
-    .field
-      = f.label :Webページ, class: "field-label"
-      .uk-inline
-        %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: world"}
-        = f.text_field :web_url, autocomplete: "off", class: "uk-input field-input"
-    .field
-      = f.label :バンドマスター, class: "field-label"
+      = f.label :企画責任者, class: "field-label"
       .uk-inline
         %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: user"}
         %input.uk-input.field-input#master-search-field{placeholder: "バンマス名を入力してください", type: "text", name: "keyword"}
         #master-search-result
       #master-box
-    .field
-      = f.label :PA, class: "field-label"
-      .uk-inline
-        %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: user"}
-        %input.uk-input.field-input#pa-search-field{placeholder: "PAの名前を入力してください", type: "text", name: "keyword"}
-        #pa-search-result
-      #pa-box
     .field
       %label.field-label メンバーを追加
       .uk-inline.uk-position-relative

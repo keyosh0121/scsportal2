@@ -246,8 +246,8 @@ $(function() {
     $(".all-band-button-pc").click();
   });
 
-  $(".normal-button-mobile").on("click", function(){
-    $(".normal-button-pc").click();
+  $(".regular-button-mobile").on("click", function(){
+    $(".regular-button-pc").click();
   });
 
   $(".temporal-button-mobile").on("click", function(){

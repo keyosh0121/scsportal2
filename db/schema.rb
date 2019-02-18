@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_13_044909) do
+ActiveRecord::Schema.define(version: 2019_02_18_052735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,13 +49,13 @@ ActiveRecord::Schema.define(version: 2019_02_13_044909) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "band_name", null: false
-    t.integer "band_year", null: false
+    t.integer "band_year"
     t.text "description"
     t.string "web_url"
-    t.integer "band_type", null: false
     t.boolean "registeration", null: false
     t.bigint "master_id", null: false
     t.bigint "pa_id", null: false
+    t.string "type"
     t.index ["master_id"], name: "index_bands_on_master_id"
     t.index ["pa_id"], name: "index_bands_on_pa_id"
   end

@@ -7,7 +7,7 @@
           - @band.errors.full_messages.each do |message|
             %li= message
     =f.hidden_field :type, value: "RegularBand"
-    %legend.uk-legend.form-title.flex-center 正規バンド編集
+    %legend.uk-legend.form-title.flex-center 正規バンド登録
     .field
       = f.label :バンド名, class: "field-label"
       .uk-inline
@@ -54,26 +54,5 @@
         .uk-section.uk-section-muted.uk-preserve-color.uk-section-small
           .uk-container
             %ul.uk-list.band-member-list
-
-            -@band.users.each do |user|
-              %li.band-member
-                %input{name: "band[members][][user_id]", type: "hidden", value: "= user.id"}/
-                .band-member_year-section
-                  = year_in_scs(user) user.section.name
-                .band-member_name
-                  = user.user_name
-                .band-member_mic-number
-                  マイク番号
-                  %select{name: "band[members][][mic_number]"}
-                    %option{value: "1"} 1番
-                    %option{value: "2"} 2番
-                    %option{value: "3"} 3番
-                    %option{value: "4"} 4番
-                    %option{value: "5"} 5番
-                    %option{value: "6"} 6番
-                    %option{value: "7"} 7番
-                %a.band-member_remove-button 消去
-
-
     .actions.flex-center
       = f.submit "登録", class: "uk-button uk-button-primary form-button"

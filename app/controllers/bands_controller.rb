@@ -7,7 +7,11 @@ class BandsController < ApplicationController
   end
 
   # 申請フォームは後から他のやつを使い回すので大丈夫です。
-  def new
+  def new_regular
+    @band = Band.new
+  end
+
+  def new_temporal
     @band = Band.new
   end
 
@@ -15,9 +19,17 @@ class BandsController < ApplicationController
     @band = new_band(band_params)
     if @band.save
       @band_members = new_members(band_params, @band)
-      redirect_to root_path, notice: 'バンドを作成しました'
+      success = @band_members.map(&:save)
+      if success.all?
+        redirect_to root_path, notice: 'バンドを作成しました'
+      else
+        @band_members.map(&:delete)
+        render :new_regular, notice: 'バンドメンバーを登録できませんでした' if @band.type == "RegularBand"
+        render :new_temporal, notice: 'バンドメンバーを登録できませんでした' if @band.type == "TemporalBand"
+      end
     else
-      render :new
+      render :new_regular, notice: 'バンドメンバーを登録できませんでした' if @band.type == "RegularBand"
+      render :new_temporal, notice: 'バンドメンバーを登録できませんでした' if @band.type == "TemporalBand"
     end
   end
 
@@ -38,7 +50,7 @@ class BandsController < ApplicationController
   private
   def band_params
     params.require(:band).permit(
-      :band_type,
+      :type,
       :band_name,
       :band_year,
       :description,
@@ -54,7 +66,7 @@ class BandsController < ApplicationController
 
   def new_band(params)
     band = Band.new(
-      band_type: params[:band_type],
+      type: params[:type],
       band_name: params[:band_name],
       band_year: params[:band_year],
       description: params[:description],
@@ -80,6 +92,7 @@ class BandsController < ApplicationController
         band_members.push(band_member)
       end
     end
+    return band_members
   end
 
   def set_band

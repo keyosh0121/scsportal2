@@ -1,0 +1,2 @@
+class TemporalBand < Band
+end
