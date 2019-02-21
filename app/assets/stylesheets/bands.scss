@@ -31,7 +31,7 @@
 
 
 // 以下バンド一覧ページ
-.band-index-container{
+.band-index-container, .band-show-container{
   margin-bottom: 32px;
 }
 
@@ -86,9 +86,29 @@
 
 @media screen and (max-width: 480px){
   #pc-band-navigator {display: none;}
+  .show-band{
+    &-description{
+      font-size: 15px;
+    }
+  }
 }
 
 @media screen and (min-width:481px) {
   .mobile-band-navigator-button {display:none;}
+  .show-band {width: 50%;}
 }
 
+
+
+// 以下バンド詳細ベージ
+.show-band{
+  &-picture{
+    width: 100%;
+  }
+  &-description{
+    width: 100%;
+  }
+  &-members{
+    &-list{}
+  }
+}

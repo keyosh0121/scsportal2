@@ -74,7 +74,6 @@
                 %h3.index-band-name= regular_band.band_name
                 %img.index-band-picture{"src" => "http://www.acappellazone.com/fileadmin/user_upload/ACAPPELLAZONE/TOP_ACTS/Slixs/SLIXS-hagen-wolf-3_slider.jpg"}
                 %h3.index-band-description= regular_band.description
-          }
       -@temporal_bands.each do |temporal_band|
         %li{"data-band-type" => "temporal", "data-band-formation" => "#{band_formation(regular_band)}"}
           = link_to temporal_band_path(temporal_band) do
@@ -163,7 +162,7 @@
           .uk-container
             %h3.index-band-name こまだダンススタジオ
       %li{"data-band-type" => "temporal", "data-band-formation" => "girls-band"}
-        .uk-card.uk-card-secondary.uk-card-body.index-band
+        .uk-card.uk-card-body.index-band.girls-band
           .uk-container
             %h3.index-band-name ギャルバンゴス
       %li{"data-band-type" => "temporal", "data-band-formation" => "boys-band"}
