@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_13_044909) do
+ActiveRecord::Schema.define(version: 2019_02_14_072307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,7 +111,6 @@ ActiveRecord::Schema.define(version: 2019_02_13_044909) do
     t.time "end_time"
     t.bigint "user_id", null: false
     t.bigint "band_id", null: false
-    t.bigint "room_id", null: false
     t.bigint "period_id", null: false
     t.integer "order"
     t.text "remark"
@@ -119,6 +118,7 @@ ActiveRecord::Schema.define(version: 2019_02_13_044909) do
     t.string "pa_attendance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "room_id"
     t.index ["band_id"], name: "index_mics_on_band_id"
     t.index ["period_id"], name: "index_mics_on_period_id"
     t.index ["room_id"], name: "index_mics_on_room_id"
