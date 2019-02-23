@@ -30,5 +30,14 @@ module BandsHelper
     end
   end
 
+  def user_band_member?(band, user)
+    band.users.each do |member|
+      if user == member
+        return true
+      end
+    end
+    return false
+  end
+
 
 end

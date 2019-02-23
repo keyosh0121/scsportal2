@@ -104,7 +104,6 @@ $(function() {
                     <div class="band-member_name">
                       ${name}
                     </div>
-                    <a class="band-member_remove-button">消去</a>
                   </div>
                 </div>`
     return html;
@@ -198,7 +197,6 @@ $(function() {
                     <div class="band-member_name">
                       ${name}
                     </div>
-                    <a class="band-member_remove-button">消去</a>
                   </div>
                 </div>`
     return html;

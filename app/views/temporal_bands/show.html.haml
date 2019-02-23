@@ -1,3 +1,5 @@
+- if user_band_member?(@temporal_band, current_user)
+  = link_to "編集", edit_temporal_band_path, class: "show-band-edit"
 %legend.uk-legend.flex-center.page-title
   = @temporal_band.band_name
 .uk-container.flex-center.band-show-container

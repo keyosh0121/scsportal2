@@ -122,4 +122,17 @@
     &-ul{margin: 0px;}
     &-list{}
   }
+  &-edit{
+    background-color: $white;
+    position: fixed;
+    top: 70px;
+    right: 30px;
+    display:block;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    border: 1px solid;
+    z-index: 999;
+    padding: 15px 0 0 11px;
+  }
 }
