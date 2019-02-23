@@ -86,11 +86,11 @@
 
 @media screen and (max-width: 480px){
   #pc-band-navigator {display: none;}
-  .show-band{
-    &-description{
-      font-size: 15px;
-    }
-  }
+  // .show-band{
+  //   &-description .show-band-body{
+  //     font-size: 13px;
+  //   }
+  // }
 }
 
 @media screen and (min-width:481px) {
@@ -102,13 +102,24 @@
 
 // 以下バンド詳細ベージ
 .show-band{
+  &-label{
+    font-size: 15px;
+    border-bottom: solid 2px orange;
+    margin-bottom: 3px;
+  }
+  &-body{
+    margin-bottom: 20px;
+    padding-left: 10px;
+  }
   &-picture{
     width: 100%;
+    border: solid 3px $alert_color;
   }
   &-description{
     width: 100%;
   }
   &-members{
+    &-ul{margin: 0px;}
     &-list{}
   }
 }
