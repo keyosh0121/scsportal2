@@ -3,7 +3,7 @@ module UsersHelper
   def year_in_scs(user)
     current_year = Date.today.year
     current_month = Date.today.month
-    user_year = user.user_year
+    user_year = user.year
 
     if 4 <= current_month
       if current_year - user_year == 0

@@ -2,19 +2,19 @@
 
 .uk-container.uk-width-2-3@s.uk-margin-auto.uk-padding-small(uk-accordion="multiple: true")
   - mic_date = @mics.map(&:date).uniq
-  - mic_date.each do |date| 
+  - mic_date.each do |date|
     .day-wrap
       %a{href: "#", class: "uk-accordion-title"}
         .belt= date
       .uk-accordion-content.content-wrap
         - mic_period = @mics.where(date: date).map(&:period).uniq
-        - mic_period.each do |period| 
+        - mic_period.each do |period|
           /限表示
           .time-wrap
             = "== "+period.name+" =="
 
           /各マイク練表示
-          - @mics.where(date: date, period: period).each do |mic| 
+          - @mics.where(date: date, period: period).each do |mic|
             /同じ限のマイク練表示
             .split-wrap
               /マイク練順番
@@ -24,7 +24,7 @@
                 - else
                   .not-define= "未定"
 
-              /部屋ボタン  
+              /部屋ボタン
               .room-wrap.flex-center
                 - if mic.room
                   = mic.room.name
@@ -37,10 +37,10 @@
                   %input{type: "button", value: "備考あり", onclick: "alert('#{mic.remark}')" }
                 - else
                   = "備考なし"
-                
+
               /バンド名
               .band-wrap.flex-center
-                = mic.band.band_name
+                = mic.band.name
 
               /ステータス変更ボタン(削除をここでできるようにする)
               /.approve-wrap.mic-button.flex-center.button-edge-top-right
@@ -51,10 +51,10 @@
               = link_to  mic_path(mic), method: 'PATCH', data: { confirm: "PA出席を変更します(未実装)" }, class: "pa-wrap mic-button" do
                 .flex-center= pa_attendance_string(mic)
                 .flex-center= "PA-Name"#mic.band.pa.name#paのリレーション組んでないので動きません
-              
+
               /連絡ボタン
               = link_to mic_path(mic), method: 'PATCH', data: { confirm: "バンマスへ連絡します。(未実装)"}, class: "contact-wrap mic-button button-edge-bottom-right" do
                 .flex-center= "バンマスへ"
                 .flex-center= "連絡" #TODO: クリックでメール送信画面
 
-  
+
