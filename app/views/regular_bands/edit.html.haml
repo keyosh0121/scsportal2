@@ -12,12 +12,12 @@
       = f.label :バンド名, class: "field-label"
       .uk-inline
         %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: tag"}
-        = f.text_field :band_name, autofocus: true, class: "uk-input field-input"
+        = f.text_field :name, autofocus: true, class: "uk-input field-input"
     .field
       = f.label :結成年, class: "field-label"
       .uk-inline
         %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: calendar"}
-        = f.text_field :band_year, class: "uk-input field-input"
+        = f.text_field :year, class: "uk-input field-input"
     .field
       = f.label :バンドの説明, class: "field-label"
       .uk-inline
@@ -39,10 +39,10 @@
           .uk-container
             %input{:name => "regular_band[master_id]", :type => "hidden", :value => "#{@regular_band.master.id}"}
             .band-member_year-section
-              = @regular_band.master.user_year
+              = @regular_band.master.year
               = @regular_band.master.section.name
             .band-member_name
-              = @regular_band.master.user_name
+              = @regular_band.master.name
     .field
       = f.label :PA, class: "field-label"
       .uk-inline
@@ -54,10 +54,10 @@
           .uk-container
             %input{:name => "regular_band[pa_id]", :type => "hidden", :value => "#{@regular_band.pa.id}"}
             .band-member_year-section
-              = @regular_band.pa.user_year
+              = @regular_band.pa.year
               = @regular_band.pa.section.name
             .band-member_name
-              = @regular_band.pa.user_name
+              = @regular_band.pa.name
     .field
       %label.field-label メンバーを追加
       .uk-inline.uk-position-relative
@@ -74,10 +74,10 @@
                 %li.band-member
                   %input{:name => "regular_band[members][][user_id]", :type => "hidden", :value => "#{user.id}"}
                   .band-member_year-section
-                    = user.user_year
+                    = user.year
                     = user.section.name
                   .band-member_name
-                    = user.user_name
+                    = user.name
                   .band-member_mic-number
                     マイク番号
                     %select{:name => "regular_band[members][][mic_number]"}

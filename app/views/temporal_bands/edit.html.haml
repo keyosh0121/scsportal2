@@ -12,7 +12,7 @@
       = f.label :企画名, class: "field-label"
       .uk-inline
         %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: tag"}
-        = f.text_field :band_name, autofocus: true, class: "uk-input field-input"
+        = f.text_field :name, autofocus: true, class: "uk-input field-input"
     .field
       = f.label :企画責任者, class: "field-label"
       .uk-inline
@@ -24,10 +24,10 @@
           .uk-container
             %input{:name => "temporal_band[master_id]", :type => "hidden", :value => "#{@temporal_band.master.id}"}
             .band-member_year-section
-              = @temporal_band.master.user_year
+              = @temporal_band.master.year
               = @temporal_band.master.section.name
             .band-member_name
-              = @temporal_band.master.user_name
+              = @temporal_band.master.name
     .field
       %label.field-label メンバーを追加
       .uk-inline.uk-position-relative
@@ -44,10 +44,10 @@
                 %li.band-member
                   %input{:name => "temporal_band[members][][user_id]", :type => "hidden", :value => "#{user.id}"}
                   .band-member_year-section
-                    = user.user_year
+                    = user.year
                     = user.section.name
                   .band-member_name
-                    = user.user_name
+                    = user.name
                   .band-member_mic-number
                     マイク番号
                     %select{:name => "temporal_band[members][][mic_number]"}

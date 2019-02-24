@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_18_052735) do
+ActiveRecord::Schema.define(version: 2019_02_24_060916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 2019_02_18_052735) do
   create_table "bands", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "band_name", null: false
-    t.integer "band_year"
+    t.string "name", null: false
+    t.integer "year"
     t.text "description"
     t.string "web_url"
     t.boolean "registeration", null: false
@@ -199,10 +199,10 @@ ActiveRecord::Schema.define(version: 2019_02_18_052735) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "user_name", null: false
+    t.string "name", null: false
     t.string "email", null: false
     t.string "encrypted_password", null: false
-    t.integer "user_year", null: false
+    t.integer "year", null: false
     t.string "uni", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

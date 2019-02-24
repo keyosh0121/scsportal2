@@ -1,7 +1,7 @@
 - if user_band_member?(@regular_band, current_user)
   = link_to "編集", edit_regular_band_path, class: "show-band-edit"
 %legend.uk-legend.flex-center.page-title
-  = @regular_band.band_name
+  = @regular_band.name
 .uk-container.flex-center.band-show-container
   .uk-card.uk-card-large.show-band
     .uk-card-media-top
@@ -21,7 +21,7 @@
               -@regular_band.band_members.includes(:user).each do |member|
                 %li.show-band-members-list
                   .show-band-members-list-name.uk-float-left
-                    = member.user.user_name
+                    = member.user.name
                   .show-band-members-list-mic-number.uk-float-right
                     マイク番号：
                     = member.mic_number
@@ -29,9 +29,9 @@
           .show-band-label
             バンマス
           .show-band-body
-            = @regular_band.master.user_name
+            = @regular_band.master.name
         .show-band-pa
           .show-band-label
             PA
           .show-band-body
-            = @regular_band.pa.user_name
+            = @regular_band.pa.name

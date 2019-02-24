@@ -11,15 +11,15 @@ ActiveAdmin.register User do
     redirect_to collection_path, alert: "ユーザは承認されました"
   end
 
-  permit_params :user_name, :email, :password, :password_confirmation, :user_year, :uni, :gender, :authority_id, :section_id
+  permit_params :name, :email, :password, :password_confirmation, :year, :uni, :gender, :authority_id, :section_id
 
   index do
     selectable_column
     id_column
-    column :user_name
+    column :name
     column :email
     column :created_at
-    column :user_year
+    column :year
     column :uni
     column :gender
     column :authority
@@ -27,8 +27,8 @@ ActiveAdmin.register User do
     actions
   end
 
-  filter :user_name
-  filter :user_year
+  filter :name
+  filter :year
   filter :email
   filter :authority
   filter :section
@@ -36,7 +36,7 @@ ActiveAdmin.register User do
 
   form do |f|
     f.inputs do
-      f.input :user_name
+      f.input :name
       f.input :email
       f.input :authority
       f.input :section
