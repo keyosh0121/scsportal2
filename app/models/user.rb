@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   belongs_to :section
   belongs_to :authority
+  has_many :band_members
+  has_many :bands, through: :band_members
   validates :user_year, presence: true
   validates :user_name, presence: true
   validates :authority_id, presence: true

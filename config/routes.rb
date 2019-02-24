@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   resources :events
   resources :room_usages, only:[:index,:new]
   resources :mics
-  resources :bands
+  resources :bands, only:[:index]
+  resources :regular_bands, only:[:new, :create, :show, :edit, :update]
+  resources :temporal_bands, only:[:new, :create, :show, :edit, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/mics/order/:id', to: 'mics#order'
   post '/mics/order/:id/:order', to: 'mics#order_update'

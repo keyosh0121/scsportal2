@@ -10,17 +10,23 @@
         %li.uk-nav-divider
         %li.uk-nav-header バンドの種類
         %ul.uk-nav-sub
-          %li.normal-button-mobile
+          %li.regular-button-mobile
             %a 正規バンド
           %li.temporal-button-mobile
             %a 企画バンド
         %li.uk-nav-divider
         %li.uk-nav-header バンドの構成
         %ul.uk-nav-sub
+          %li.mix-3-button-mobile
+            %a 混声3人
+          %li.mix-4-button-mobile
+            %a 混声4人
           %li.mix-5-button-mobile
             %a 混声5人
           %li.mix-6-button-mobile
             %a 混声6人
+          %li.mix-7-button-mobile
+            %a 混声7人
           %li.boys-band-button-mobile
             %a ヤロバン
           %li.girls-band-button-mobile
@@ -36,16 +42,22 @@
             %a All
       %div
         %ul.uk-subnav.uk-subnav-pill
-          %li.normal-button-pc{"uk-filter-control" => "filter: [data-band-type='normal']; group: data-band-type"}
+          %li.regular-button-pc{"uk-filter-control" => "filter: [data-band-type='regular']; group: data-band-type"}
             %a 正規バンド
           %li.temporal-button-pc{"uk-filter-control" => "filter: [data-band-type='temporal']; group: data-band-type"}
             %a 企画バンド
       %div
         %ul.uk-subnav.uk-subnav-pill
+          %li.mix-3-button-pc{"uk-filter-control" => "filter: [data-band-formation='mix-3']; group: data-band-formation"}
+            %a 混声3人
+          %li.mix-4-button-pc{"uk-filter-control" => "filter: [data-band-formation='mix-4']; group: data-band-formation"}
+            %a 混声4人
           %li.mix-5-button-pc{"uk-filter-control" => "filter: [data-band-formation='mix-5']; group: data-band-formation"}
             %a 混声5人
           %li.mix-6-button-pc{"uk-filter-control" => "filter: [data-band-formation='mix-6']; group: data-band-formation"}
             %a 混声6人
+          %li.mix-7-button-pc{"uk-filter-control" => "filter: [data-band-formation='mix-7']; group: data-band-formation"}
+            %a 混声7人
           %li.boys-band-button-pc{"uk-filter-control" => "filter: [data-band-formation='boys-band']; group: data-band-formation"}
             %a ヤロバン
           %li.girls-band-button-pc{"uk-filter-control" => "filter: [data-band-formation='girls-band']; group: data-band-formation"}
@@ -54,31 +66,41 @@
 
 
     %ul.js-filter.uk-child-width-1-2.uk-text-center{class: "uk-child-width-1-3@m", "uk-grid" => ""}
-      %li{"data-band-type" => "normal", "data-band-formation" => "mix-6"}
-        .uk-card.uk-card-body.index-band.mix-6
-          .uk-container
-            %h3.index-band-name Slixs
-            %img.index-band-picture{"src" => "http://www.acappellazone.com/fileadmin/user_upload/ACAPPELLAZONE/TOP_ACTS/Slixs/SLIXS-hagen-wolf-3_slider.jpg"}
-            %h3.index-band-description SLIXS (bis Ende Januar 2012 Stouxingers) ist ein deutsches A-cappella-Sextett aus Berlin, Dresden, Leipzig und Halle. Katharina Debus, Michael Eimann, Gregorio D’Clouet Hernández, Karsten Müller, Thomas Piontek und Konrad Zeiner sind feste Mitglieder des Ensembles und verfolgen neben ihrer Zusammenarbeit
-      %li{"data-band-type" => "normal", "data-band-formation" => "mix-5"}
+      -@regular_bands.each do |regular_band|
+        %li{"data-band-type" => "regular", "data-band-formation" => "#{band_formation(regular_band)}"}
+          = link_to regular_band_path(regular_band) do
+            .uk-card.uk-card-body.index-band{class: "#{band_formation(regular_band)}"}
+              .uk-container
+                %h3.index-band-name= regular_band.band_name
+                %img.index-band-picture{"src" => "http://www.acappellazone.com/fileadmin/user_upload/ACAPPELLAZONE/TOP_ACTS/Slixs/SLIXS-hagen-wolf-3_slider.jpg"}
+                %h3.index-band-description= regular_band.description
+      -@temporal_bands.each do |temporal_band|
+        %li{"data-band-type" => "temporal", "data-band-formation" => "#{band_formation(regular_band)}"}
+          = link_to temporal_band_path(temporal_band) do
+            .uk-card.uk-card-body.index-band{class: "#{band_formation(regular_band)}"}
+              .uk-container
+                %h3.index-band-name= temporal_band.band_name
+
+
+      %li{"data-band-type" => "regular", "data-band-formation" => "mix-5"}
         .uk-card.uk-card-default.uk-card-body.index-band
           .uk-container
             %h3.index-band-name Pentatonix
             %img.index-band-picture{"src" => "https://www.billboard.com/files/styles/article_main_image/public/media/Pentatonix-press-photo-cr-Vijat-Mohindra-2017-billboard-1548.jpg"}
             %h3.index-band-description Pentatonix (abbreviated PTX) is an American a cappella group from Arlington, Texas, consisting of vocalists Scott Hoying, Mitch Grassi, Kirstin Maldonado, Kevin Olusola, and Matt Sallee. Avi Kaplan was formerly a member of the group; he was replaced by Sallee in 2017
-      %li{"data-band-type" => "normal", "data-band-formation" => "boys-band"}
+      %li{"data-band-type" => "regular", "data-band-formation" => "boys-band"}
         .uk-card.uk-card-primary.uk-card-body.index-band
           .uk-container
             %h3.index-band-name Take 6
             %img.index-band-picture{"src" => "https://assets.jazziz.com/uploads/2016/03/Take6-768x512.jpg"}
             %h3.index-band-description Take 6 is an American a cappella gospel sextet formed in 1980 on the campus of Oakwood College in Huntsville, Alabama.[1] The group integrates jazz with spiritual and inspirational lyrics.
-      %li{"data-band-type" => "normal", "data-band-formation" => "mix-5"}
+      %li{"data-band-type" => "regular", "data-band-formation" => "mix-5"}
         .uk-card.uk-card-default.uk-card-body.index-band
           .uk-container
             %h3.index-band-name The Real Group
             %img.index-band-picture{"src" => "https://images.sk-static.com/images/media/profile_images/artists/534223/huge_avatar"}
             %h3.index-band-description The Real Group has performed more than 2000 concerts worldwide.[3] In 2002 The Real Group performed at the opening ceremony of the FIFA World Cup in Seoul, South Korea to an audience of 60,000. On 22 December 1993, to commemorate the fiftieth birthday of
-      %li{"data-band-type" => "normal", "data-band-formation" => "mix-5"}
+      %li{"data-band-type" => "regular", "data-band-formation" => "mix-5"}
         .uk-card.uk-card-default.uk-card-body.index-band
           .uk-container
             %h3.index-band-name Vox One
@@ -86,50 +108,50 @@
             %h3.index-band-description 1988年、当時バークリー音楽院に在籍していた松岡由美子が学内で知り合った仲間とともにVOX ONEを結成。幾度かのメンバーチェンジを得て1993年にアルバム『VOX ONE』でデビュー。その後アメリカで3枚、日本で2枚のアルバムを発表、米国アカペラ連盟(CASA)主催のアカペラレコード大賞(CARA)でアルバム大賞を受賞するなど活躍をしたが1997年活動停止。
 
 
-      %li{"data-band-type" => "normal", "data-band-formation" => "girls-band"}
-        .uk-card.uk-card-secondary.uk-card-body.index-band
+      %li{"data-band-type" => "regular", "data-band-formation" => "girls-band"}
+        .uk-card.uk-card-secondary.uk-card-body.index-band.girls-band
           .uk-container
             %h3.index-band-name Little Glee Monster
             %img.index-band-picture{"src" => "https://cdn.fashionsnap.com/article/assets_c/2018/08/lgm20180831-001-thumb-750xauto-921712.jpg"}
             %h3.index-band-description リトル グリー モンスター）は、日本のガールズボーカル音楽グループ。2013年結成。2014年に6人組ボーカルグループとしてメジャーデビュー。現在は5人で活動している。略称はリトグリ。所属事務所はワタナベエンターテインメント。レーベルはソニー・ミュージックレコーズ。
-      %li{"data-band-type" => "normal", "data-band-formation" => "girls-band"}
-        .uk-card.uk-card-secondary.uk-card-body.index-band
+      %li{"data-band-type" => "regular", "data-band-formation" => "girls-band"}
+        .uk-card.uk-card-secondary.uk-card-body.index-band.girls-band
           .uk-container
             %h3.index-band-name Little Glee Monster
             %img.index-band-picture{"src" => "https://cdn.fashionsnap.com/article/assets_c/2018/08/lgm20180831-001-thumb-750xauto-921712.jpg"}
             %h3.index-band-description リトル グリー モンスター）は、日本のガールズボーカル音楽グループ。2013年結成。2014年に6人組ボーカルグループとしてメジャーデビュー。現在は5人で活動している。略称はリトグリ。所属事務所はワタナベエンターテインメント。レーベルはソニー・ミュージックレコーズ。
-      %li{"data-band-type" => "normal", "data-band-formation" => "boys-band"}
+      %li{"data-band-type" => "regular", "data-band-formation" => "boys-band"}
         .uk-card.uk-card-primary.uk-card-body.index-band
           .uk-container
             %h3.index-band-name Take 6
             %img.index-band-picture{"src" => "https://assets.jazziz.com/uploads/2016/03/Take6-768x512.jpg"}
             %h3.index-band-description Take 6 is an American a cappella gospel sextet formed in 1980 on the campus of Oakwood College in Huntsville, Alabama.[1] The group integrates jazz with spiritual and inspirational lyrics.
-      %li{"data-band-type" => "normal", "data-band-formation" => "girls-band"}
-        .uk-card.uk-card-secondary.uk-card-body.index-band
+      %li{"data-band-type" => "regular", "data-band-formation" => "girls-band"}
+        .uk-card.uk-card-secondary.uk-card-body.index-band.girls-band
           .uk-container
             %h3.index-band-name Little Glee Monster
             %img.index-band-picture{"src" => "https://cdn.fashionsnap.com/article/assets_c/2018/08/lgm20180831-001-thumb-750xauto-921712.jpg"}
             %h3.index-band-description リトル グリー モンスター）は、日本のガールズボーカル音楽グループ。2013年結成。2014年に6人組ボーカルグループとしてメジャーデビュー。現在は5人で活動している。略称はリトグリ。所属事務所はワタナベエンターテインメント。レーベルはソニー・ミュージックレコーズ。
-      %li{"data-band-type" => "normal", "data-band-formation" => "boys-band"}
+      %li{"data-band-type" => "regular", "data-band-formation" => "boys-band"}
         .uk-card.uk-card-primary.uk-card-body.index-band
           .uk-container
             %h3.index-band-name The Gospellers
             %img.index-band-picture{"src" => "http://sp.gospellers.tv/image/gospellers/bnr/mainimage_gospellers-1_116.jpg"}
             %h3.index-band-description 1989年に、國學院大學久我山高等学校で同じクラスだった村上てつやと黒沢薫が他の同級生と共にコーラスグループを結成し、高校の文化祭で歌を披露する。1991年、村上が早稲田大学に入学し、アカペラサークル"Street Corner Symphony”の門を叩く。そして、当時國學院大學に通っていた黒沢を同サークルに誘い、村上、黒沢と他4名で初代ゴスペラーズが結成される（初代は6人）。初代リーダー脱退後、インディーズとして当時のメンバーで録音された「Down To Street」を発売。これが唯一2代目ゴスペラーズの音源となった。
-      %li{"data-band-type" => "normal", "data-band-formation" => "mix-5"}
+      %li{"data-band-type" => "regular", "data-band-formation" => "mix-5"}
         .uk-card.uk-card-default.uk-card-body.index-band
           .uk-container
             %h3.index-band-name Pentatonix
             %img.index-band-picture{"src" => "https://www.billboard.com/files/styles/article_main_image/public/media/Pentatonix-press-photo-cr-Vijat-Mohindra-2017-billboard-1548.jpg"}
             %h3.index-band-description Pentatonix (abbreviated PTX) is an American a cappella group from Arlington, Texas, consisting of vocalists Scott Hoying, Mitch Grassi, Kirstin Maldonado, Kevin Olusola, and Matt Sallee. Avi Kaplan was formerly a member of the group; he was replaced by Sallee in 2017
-      %li{"data-band-type" => "normal", "data-band-formation" => "boys-band"}
+      %li{"data-band-type" => "regular", "data-band-formation" => "boys-band"}
         .uk-card.uk-card-primary.uk-card-body.index-band
           .uk-container
             %h3.index-band-name Take 6
             %img.index-band-picture{"src" => "https://assets.jazziz.com/uploads/2016/03/Take6-768x512.jpg"}
             %h3.index-band-description Take 6 is an American a cappella gospel sextet formed in 1980 on the campus of Oakwood College in Huntsville, Alabama.[1] The group integrates jazz with spiritual and inspirational lyrics.
-      %li{"data-band-type" => "normal", "data-band-formation" => "girls-band"}
-        .uk-card.uk-card-secondary.uk-card-body.index-band
+      %li{"data-band-type" => "regular", "data-band-formation" => "girls-band"}
+        .uk-card.uk-card-secondary.uk-card-body.index-band.girls-band
           .uk-container
             %h3.index-band-name Little Glee Monster
             %img.index-band-picture{"src" => "https://cdn.fashionsnap.com/article/assets_c/2018/08/lgm20180831-001-thumb-750xauto-921712.jpg"}
@@ -140,7 +162,7 @@
           .uk-container
             %h3.index-band-name こまだダンススタジオ
       %li{"data-band-type" => "temporal", "data-band-formation" => "girls-band"}
-        .uk-card.uk-card-secondary.uk-card-body.index-band
+        .uk-card.uk-card-body.index-band.girls-band
           .uk-container
             %h3.index-band-name ギャルバンゴス
       %li{"data-band-type" => "temporal", "data-band-formation" => "boys-band"}
