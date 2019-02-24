@@ -1,0 +1,2 @@
+module RegularBandsHelper
+end

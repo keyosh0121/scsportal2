@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Authority.create(name: "未承認")
 Authority.create(name: "一般")
 Authority.create(name: "ライブプロデューサー")
 Authority.create(name: "ウェブマスター")

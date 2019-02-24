@@ -1,0 +1,24 @@
+- if user_band_member?(@temporal_band, current_user)
+  = link_to "編集", edit_temporal_band_path, class: "show-band-edit"
+%legend.uk-legend.flex-center.page-title
+  = @temporal_band.name
+.uk-container.flex-center.band-show-container
+  .uk-card.uk-card-large.uk-card-body.show-band
+      .uk-container
+        .show-band-members
+          .show-band-label
+            企画メンバー
+          .show-band-body
+            %ul.uk-list.show-band-members-ul
+              -@temporal_band.band_members.includes(:user).each do |member|
+                %li.show-band-members-list
+                  .show-band-members-list-name.uk-float-left
+                    = member.user.name
+                  .show-band-members-list-mic-number.uk-float-right
+                    マイク番号：
+                    = member.mic_number
+        .show-band-master
+          .show-band-label
+            企画責任者
+          .show-band-body
+            = @temporal_band.master.name

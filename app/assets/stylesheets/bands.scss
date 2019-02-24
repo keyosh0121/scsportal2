@@ -31,7 +31,7 @@
 
 
 // 以下バンド一覧ページ
-.band-index-container{
+.band-index-container, .band-show-container{
   margin-bottom: 32px;
 }
 
@@ -66,23 +66,73 @@
     font-size: 20px;
   }
   &-description{
-    height: 50px;
+    font-size: 0.65em;
+    height: 55px;
     max-width: 170px;
     display: inline-block;
     overflow: hidden;
+    margin: 0px;
     // padding-left: 1px;
   }
 }
 
-.mix-6{
-  background-color: $alert-color;
-}
+.boys-band{background-color: $uk-blue;}
+.girls-band{background-color: $light_pink;}
+.mix-3{background-color: $light_gray;}
+.mix-4{background-color: $maroon;}
+.mix-5{background-color: $uk-black;}
+.mix-6{background-color: $white;}
+.mix-7{background-color: $alert_color;}
 
 @media screen and (max-width: 480px){
   #pc-band-navigator {display: none;}
+  // .show-band{
+  //   &-description .show-band-body{
+  //     font-size: 13px;
+  //   }
+  // }
 }
 
 @media screen and (min-width:481px) {
   .mobile-band-navigator-button {display:none;}
+  .show-band {width: 50%;}
 }
 
+
+
+// 以下バンド詳細ベージ
+.show-band{
+  &-label{
+    font-size: 15px;
+    border-bottom: solid 2px orange;
+    margin-bottom: 3px;
+  }
+  &-body{
+    margin-bottom: 20px;
+    padding-left: 10px;
+  }
+  &-picture{
+    width: 100%;
+    border: solid 3px $alert_color;
+  }
+  &-description{
+    width: 100%;
+  }
+  &-members{
+    &-ul{margin: 0px;}
+    &-list{}
+  }
+  &-edit{
+    background-color: $white;
+    position: fixed;
+    top: 70px;
+    right: 30px;
+    display:block;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    border: 1px solid;
+    z-index: 999;
+    padding: 15px 0 0 11px;
+  }
+}

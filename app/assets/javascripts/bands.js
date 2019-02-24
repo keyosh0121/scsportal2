@@ -1,6 +1,6 @@
 $(function() {
 
-// ここからはバンド申請画面のjs //
+// ここからは正規バンド申請画面のjs //
   // 以下はバンドメンバー追加用 //
   // メンバー検索の結果用HTML生成
   function memberSearchResult(users){
@@ -13,9 +13,9 @@ $(function() {
   };
 
   // バンドメンバー追加用のHTML生成
-  function bandMemberHTML(id, year, name, section){
+  function regularBandMemberHTML(id, year, name, section){
     var html = `<li class="band-member">
-                  <input name='band[members][][user_id]' type='hidden' value='${id}'>
+                  <input name='regular_band[members][][user_id]' type='hidden' value='${id}'>
                   <div class="band-member_year-section">
                     ${year} ${section}
                   </div>
@@ -24,7 +24,7 @@ $(function() {
                   </div>
                   <div class="band-member_mic-number">
                     マイク番号
-                    <select name='band[members][][mic_number]'>
+                    <select name='regular_band[members][][mic_number]'>
                       <option value="1">1番</option>
                       <option value="2">2番</option>
                       <option value="3">3番</option>
@@ -71,7 +71,7 @@ $(function() {
   // 検索結果の名前をクリックした時にバンドメンバーに追加
   $(document).on("click", ".append-member", function () {
     $("#member-search-result").empty();
-    var member = bandMemberHTML($(this).data('user-id'), $(this).data('user-year'), $(this).data('user-name'), $(this).data('user-section'));
+    var member = regularBandMemberHTML($(this).data('user-id'), $(this).data('user-year'), $(this).data('user-name'), $(this).data('user-section'));
     $(".band-member-list").append(member);
   });
 
@@ -97,14 +97,13 @@ $(function() {
   function bandMasterHTML(id, year, name, section){
     var html = `<div class="uk-section uk-section-muted uk-preserve-color uk-section-xsmall">
                   <div class="uk-container">
-                    <input name='band[master_id]' type='hidden' value='${id}'>
+                    <input name='regular_band[master_id]' type='hidden' value='${id}'>
                     <div class="band-member_year-section">
                       ${year} ${section}
                     </div>
                     <div class="band-member_name">
                       ${name}
                     </div>
-                    <a class="band-member_remove-button">消去</a>
                   </div>
                 </div>`
     return html;
@@ -113,7 +112,7 @@ $(function() {
   // バンマスをメンバーに自動追加用のHTML生成
   function masterToMemberHTML(id, year, name, section){
     var html = `<li class="band-member" id="master-member">
-                  <input name='band[members][][user_id]' type='hidden' value='${id}'>
+                  <input name='regular_band[members][][user_id]' type='hidden' value='${id}'>
                   <div class="band-member_year-section">
                     ${year} ${section}
                   </div>
@@ -122,7 +121,7 @@ $(function() {
                   </div>
                   <div class="band-member_mic-number">
                     マイク番号
-                    <select name='band[members][][mic_number]'>
+                    <select name='regular_band[members][][mic_number]'>
                       <option value="1">1番</option>
                       <option value="2">2番</option>
                       <option value="3">3番</option>
@@ -170,7 +169,9 @@ $(function() {
     $("#master-search-result").empty();
     $("#master-box").empty();
     var master = bandMasterHTML($(this).data('user-id'), $(this).data('user-year'), $(this).data('user-name'), $(this).data('user-section'));
+    var member = masterToMemberHTML($(this).data('user-id'), $(this).data('user-year'), $(this).data('user-name'), $(this).data('user-section'));
     $("#master-box").append(master);
+    $("#master-member").remove();
     $(".band-member-list").append(member);
   });
 
@@ -189,14 +190,13 @@ $(function() {
   function bandPaHTML(id, year, name, section){
     var html = `<div class="uk-section uk-section-muted uk-preserve-color uk-section-xsmall">
                   <div class="uk-container">
-                    <input name='band[pa_id]' type='hidden' value='${id}'>
+                    <input name='regular_band[pa_id]' type='hidden' value='${id}'>
                     <div class="band-member_year-section">
                       ${year} ${section}
                     </div>
                     <div class="band-member_name">
                       ${name}
                     </div>
-                    <a class="band-member_remove-button">消去</a>
                   </div>
                 </div>`
     return html;
@@ -246,12 +246,20 @@ $(function() {
     $(".all-band-button-pc").click();
   });
 
-  $(".normal-button-mobile").on("click", function(){
-    $(".normal-button-pc").click();
+  $(".regular-button-mobile").on("click", function(){
+    $(".regular-button-pc").click();
   });
 
   $(".temporal-button-mobile").on("click", function(){
     $(".temporal-button-pc").click();
+  });
+
+  $(".mix-3-button-mobile").on("click", function(){
+    $(".mix-3-button-pc").click();
+  });
+
+  $(".mix-4-button-mobile").on("click", function(){
+    $(".mix-4-button-pc").click();
   });
 
   $(".mix-5-button-mobile").on("click", function(){
@@ -260,6 +268,10 @@ $(function() {
 
   $(".mix-6-button-mobile").on("click", function(){
     $(".mix-6-button-pc").click();
+  });
+
+  $(".mix-7-button-mobile").on("click", function(){
+    $(".mix-7-button-pc").click();
   });
 
   $(".boys-band-button-mobile").on("click", function(){

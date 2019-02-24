@@ -1,0 +1,20 @@
+%h2 マイク練一覧(個人用)
+
+-#表示部分は別ファイルにするかも
+- mic_date = @mics.map(&:date).uniq
+- mic_date.each do |date|
+  = date #日付表示
+  - @mics.where(date: date).each do |mic| #該当日付のマイク練表示
+    = mic.period #限表示
+    = mic.order if mic.order #分割あれば順番表示
+
+    - if mic.room
+      = mic.room
+    - else
+      = "部屋未定"
+
+    = mic.band.name
+    = mic.band.pa.name if mic.band.type == "RegularBand"
+    = mic.pa_attendance if mic.band.type == "RegularBand"
+
+

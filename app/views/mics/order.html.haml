@@ -1,0 +1,15 @@
+.uk-section-xsmall.uk-text-large
+  .flex-center
+    = @mic.date.to_s + " " + @mic.period.name
+  .flex-center
+    = @mic.band.name
+
+.uk-padding-remove-vertical
+  - split_mic_count(@mic).times do |i|
+    .link-button-padding
+      - unless mic_order_any?(@mic, i+1) #分割一番目に他のバンドがなければ
+        = link_to("/order/#{@mic.id}/#{i+1}",:method => 'POST', data: { confirm: "#{i+1}番目でよろしいですか？" },class: 'link-button' ) do
+          ="#{i+1}番目を希望する"
+      - else
+        .link-button-pressed
+          = "#{i+1}番目：" + ordered_band_name(@mic, i+1)
