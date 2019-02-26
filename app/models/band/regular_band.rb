@@ -1,7 +1,18 @@
-class RegularBand < Band
-  belongs_to :pa, class_name: 'User', foreign_key: 'pa_id'
-  validates :year, presence: {message: 'は必須項目です'}
-  validates :description, presence: {message: 'は必須項目です'}
-  validates :master_id, presence: {message: 'は必須項目です'}
-  validates :pa_id, presence: {message: 'は必須項目です'}
+class RegularBandValidator < ActiveModel::Validator
+  def validate(record)
+    unless  record.type != nil && record.type.match('RegularBand')
+      record.errors[:type] << 'は正規バンドでなければいけません'
+    end
+  end
 end
+
+class RegularBand < Band
+  include ActiveModel::Validations
+  belongs_to :pa, class_name: 'User', foreign_key: 'pa_id'
+  validates :year, presence: true
+  validates :description, presence: true
+  validates_with RegularBandValidator
+end
+
+
+

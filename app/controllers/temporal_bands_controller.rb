@@ -34,7 +34,6 @@ class TemporalBandsController < ApplicationController
   private
   def temporal_band_params
     params.require(:temporal_band).permit(
-      :type,
       :name,
       :description,
       ).merge(params.require(:band).permit(
@@ -48,7 +47,7 @@ class TemporalBandsController < ApplicationController
 
   def new_temporal_band(params)
     band = RegularBand.new(
-      type: params[:type],
+      type: "TemporalBand",
       name: params[:name],
       description: params[:description],
       master_id: params[:master_id]

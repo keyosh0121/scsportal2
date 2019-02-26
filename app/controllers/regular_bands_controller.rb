@@ -34,7 +34,6 @@ class RegularBandsController < ApplicationController
   private
   def regular_band_params
     params.require(:regular_band).permit(
-      :type,
       :name,
       :year,
       :description,
@@ -50,7 +49,7 @@ class RegularBandsController < ApplicationController
 
   def new_regular_band(params)
     band = RegularBand.new(
-      type: params[:type],
+      type: "RegularBand",
       name: params[:name],
       year: params[:year],
       description: params[:description],
