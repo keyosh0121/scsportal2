@@ -6,7 +6,6 @@
         %ul
           - @temporal_band.errors.full_messages.each do |message|
             %li= message
-    =f.hidden_field :type, value: "TemporalBand"
     %legend.uk-legend.form-title.flex-center 企画バンド登録
     .field
       = f.label :企画名, class: "field-label"
