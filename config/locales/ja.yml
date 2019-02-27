@@ -24,6 +24,8 @@ ja:
         section: セクション
         authority: 権限
         gender: 性別
+        master: バンマス
+        pa: PA
       band:
         name: バンド名
         year: 結成年
@@ -268,4 +270,9 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
     pm: 午後
+  attributes:
+    created_at: 登録日時
+    updated_at: 更新日時
+    master: バンマス
+    pa: PA
 
