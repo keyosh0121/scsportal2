@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many        :band_members
   has_many        :bands, through: :band_members
   has_many        :mics, dependent: :destroy
+  has_many        :room_usages
   validates       :year, presence: true
   validates       :name, presence: true
   validates       :uni, presence: true
@@ -12,4 +13,5 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
 end
