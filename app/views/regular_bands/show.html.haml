@@ -1,0 +1,37 @@
+- if user_band_member?(@regular_band, current_user)
+  = link_to "編集", edit_regular_band_path, class: "show-band-edit"
+%legend.uk-legend.flex-center.page-title
+  = @regular_band.name
+.uk-container.flex-center.band-show-container
+  .uk-card.uk-card-large.show-band
+    .uk-card-media-top
+      %img.show-band-picture{"src" => "http://www.acappellazone.com/fileadmin/user_upload/ACAPPELLAZONE/TOP_ACTS/Slixs/SLIXS-hagen-wolf-3_slider.jpg"}
+    .uk-card-body
+      .uk-container
+        .show-band-description
+          .show-band-label
+            バンドの説明
+          .show-band-body
+            Pentatonix (abbreviated PTX) is an American a cappella group from Arlington, Texas, consisting of vocalists Scott Hoying, Mitch Grassi, Kirstin Maldonado, Kevin Olusola, and Matt Sallee. Avi Kaplan was formerly a member of the group; he was replaced by Sallee in 2017
+        .show-band-members
+          .show-band-label
+            バンドメンバー
+          .show-band-body
+            %ul.uk-list.show-band-members-ul
+              -@regular_band.band_members.includes(:user).each do |member|
+                %li.show-band-members-list
+                  .show-band-members-list-name.uk-float-left
+                    = member.user.name
+                  .show-band-members-list-mic-number.uk-float-right
+                    マイク番号：
+                    = member.mic_number
+        .show-band-master
+          .show-band-label
+            バンマス
+          .show-band-body
+            = @regular_band.master.name
+        .show-band-pa
+          .show-band-label
+            PA
+          .show-band-body
+            = @regular_band.pa.name

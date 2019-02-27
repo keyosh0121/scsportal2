@@ -1,5 +1,6 @@
 @import "scaffolds";
 @import "reset";
+@import "scsportal-uikit";
 @import "colors";
 @import "flash";
 /*
@@ -17,16 +18,19 @@
  *= require_tree .
  *= require_self
  */
-@import "scsportal-uikit.css";
 @import "flex_settings";
 @import "form";
 @import "room_usages";
 @import "bands";
+@import "mics";
 
 *{
 	box-sizing: border-box;
 	margin: 0;
 	color: $neutral_color;
+	-webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 // ==== ここから別ファイルに切り分け予定（_basic_settings.scss)
