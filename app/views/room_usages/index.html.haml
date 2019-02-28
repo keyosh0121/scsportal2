@@ -7,12 +7,7 @@
 				%a.uk-accordion-title.uk-padding-small.uk-background-muted 利用申請
 				.uk-accordion-content.uk-width-1-1
 					.uk-text-meta.uk-width-1-1 ①バンドを選択してください
-					= f.select :band_id, {}, {}, { class: 'uk-select'}
-					-if @current_user
-						- @current_user.bands.each do |bd|
-							%option {#bd.name}
-						- @current_user.sections.each do |sc|
-							%option {#sc.name}
+					= f.select :band_id, @current_user.bands.map{|bd| bd.name } << @current_user.section.name , {}, { class: 'uk-select'}
 					.uk-text-meta.uk-width-1-1 ①利用する部屋を選択してください
 					.uk-width-1-1.uk-flex.uk-flex-wrap.uk-child-width-1-3
 						- Room.practice_rooms.each do |rm|
@@ -54,10 +49,12 @@
 				- RoomUsage.all.each do |ru|
 					%tr
 						%td #{ru.user.name}
-						%td #{ru.band.name}#{ru.section.name}
+						%td 
+							= ru.band.name if ru.band
+							= ru.section.name if ru.section 
 						%td #{ru.room.name}
-						%td #{ru.date.strftime('%Y/%M/%D')}
-						%td #{ru.period.name}
+						%td #{ru.date.strftime('%Y/%m/%d')}
+						%td= ru.period.name
 						%td
 							-if ru.user == @current_user
 								%a.uk-icon{'uk-icon':'close'}
