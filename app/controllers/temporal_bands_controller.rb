@@ -41,7 +41,7 @@ class TemporalBandsController < ApplicationController
                 user_id
                 mic_number
               ]
-    ))
+            ))
   end
 
   def new_temporal_band(params)
