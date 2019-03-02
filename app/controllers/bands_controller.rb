@@ -4,8 +4,8 @@
 class BandsController < ApplicationController
   # バンド一覧画面
   def index
-    @regular_bands = RegularBand.all
-    @temporal_bands = TemporalBand.all
+    @regular_bands = RegularBand.includes(:users).all
+    @temporal_bands = TemporalBand.includes(:users).all
   end
 
   def destroy; end

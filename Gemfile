@@ -28,9 +28,13 @@ gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 
 group :development, :test do
+  gem "annotate"
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails"
+  gem "letter_opener"
+  gem "letter_opener_web"
   gem "rails-controller-testing"
+  gem "rails-erd"
   gem "rspec-rails"
 end
 
@@ -41,6 +45,8 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :test do

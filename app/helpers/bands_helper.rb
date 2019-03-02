@@ -3,12 +3,11 @@
 module BandsHelper
   def gender_nums(band)
     members = band.users
-    genders = members.map(&:gender)
     nums = {}
     nums[:male] = 0
     nums[:female] = 0
-    genders.each do |gender|
-      if gender == "male"
+    members.each do |member|
+      if member.gender == "male"
         nums[:male] += 1
       else
         nums[:female] += 1

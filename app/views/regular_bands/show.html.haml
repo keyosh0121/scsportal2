@@ -10,14 +10,16 @@
     .uk-text.uk-padding-small= @regular_band.description
     .uk-tile.uk-tile-muted.uk-padding-small.uk-margin-top MEMBERS
     %ul.uk-list
-      -6.times do |i| 
-        %li= "dummy member #{i + 1}" 
-      -@regular_band.band_members.each do |us|
+      -6.times do |i|
+        %li= "dummy member #{i + 1}"
+      -@regular_band.users.each do |us|
         %li= us.name
     .uk-tile.uk-tile-muted.uk-padding-small.uk-margin-top LEADER
-    .uk-text-small.uk-padding-small バンマス
+    .uk-text-small.uk-padding-small
+      = @regular_band.master.name
     .uk-tile.uk-tile-muted.uk-padding-small.uk-margin-top PA
-    .uk-text-small.uk-padding-small PA
+    .uk-text-small.uk-padding-small
+      = @regular_band.pa.name
 
 
 
