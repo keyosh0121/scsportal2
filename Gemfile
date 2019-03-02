@@ -9,6 +9,7 @@ gem "coffee-rails", "~> 4.2"
 gem "devise"
 # erbをhamlに変換するコマンド：rails haml:erb2haml
 gem "bootsnap", ">= 1.1.0", require: false
+gem "draper"
 gem "haml-rails"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
@@ -28,13 +29,19 @@ gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 
 group :development, :test do
+  gem "annotate"
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails"
+  gem "letter_opener"
+  gem "letter_opener_web"
   gem "rails-controller-testing"
+  gem "rails-erd"
   gem "rspec-rails"
 end
 
 group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
   gem "bullet"
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "rails_best_practices", require: false

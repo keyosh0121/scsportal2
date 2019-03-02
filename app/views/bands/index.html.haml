@@ -67,31 +67,18 @@
 
     %ul.js-filter.uk-child-width-1-2.uk-child-width-1-3@m{'uk-grid': "", 'uk-height-match': ''}
       -@regular_bands.each do |regular_band|
-        -#   %li{"data-band-type" => "regular", "data-band-formation" => "#{band_formation(regular_band)}"}
-        -#     = link_to regular_band_path(regular_band) do
-        -#       .uk-card.uk-card-body.index-band.uk-height-1-1{class: "#{band_formation(regular_band)}"}
-        -#         .uk-container
-        -#           %h3.index-band-name= regular_band.name
-        -#           %img.index-band-picture.uk-overflow-hidden.uk-height-1-3{"src" => "http://www.acappellazone.com/fileadmin/user_upload/ACAPPELLAZONE/TOP_ACTS/Slixs/SLIXS-hagen-wolf-3_slider.jpg"}
-        -#           .uk-text-meta.index-band-description= regular_band.description
-        -# -@temporal_bands.each do |temporal_band|
-        -#   %li{"data-band-type" => "temporal", "data-band-formation" => "#{band_formation(regular_band)}"}  
-        -#     = link_to temporal_band_path(temporal_band) do
-        -#       .uk-card.uk-card-body.index-band{class: "#{band_formation(regular_band)}"}
-        -#         .uk-container
-        -#           %h3.index-band-name= temporal_band.name
-        %li{"data-band-type" => "regular", "data-band-formation" => "#{band_formation(regular_band)}"}
+        %li{"data-band-type" => "regular", "data-band-formation" => "#{regular_band.band_formation}"}
           = link_to regular_band_path(regular_band) do
-            .uk-card.uk-card-default.uk-height-1-1
+            .uk-card.uk-card-default.uk-height-1-1{class: "#{regular_band.band_formation}"}
               .uk-card-media-top
                 %img.uk-width-1-1{"src" => "http://www.acappellazone.com/fileadmin/user_upload/ACAPPELLAZONE/TOP_ACTS/Slixs/SLIXS-hagen-wolf-3_slider.jpg"}
               .uk-card-body.uk-padding-small
                 %h3= regular_band.name
                 .uk-text-meta{style: 'font-size:0.7em'}= regular_band.description
       -@temporal_bands.each do |temporal_band|
-        %li{"data-band-type" => "temporal", "data-band-formation" => "#{band_formation(regular_band)}"}
+        %li{"data-band-type" => "temporal", "data-band-formation" => "#{temporal_band.band_formation}"}
           = link_to temporal_band_path(temporal_band) do
-            .uk-card.uk-card-default.uk-height-1-1
+            .uk-card.uk-card-default.uk-height-1-1{class: "#{temporal_band.band_formation}"}
               .uk-card-media-top
                 %img.uk-width-1-1{"src" => "http://www.acappellazone.com/fileadmin/user_upload/ACAPPELLAZONE/TOP_ACTS/Slixs/SLIXS-hagen-wolf-3_slider.jpg"}
               .uk-card-body.uk-padding-small
