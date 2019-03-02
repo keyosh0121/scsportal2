@@ -13,6 +13,7 @@ gem "draper"
 gem "haml-rails"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
+gem "jquery-ui-rails"
 gem "pg", ">= 0.18", "< 2.0"
 gem "pry-byebug"
 gem "puma", "~> 3.11"
@@ -25,7 +26,7 @@ gem "sass-rails", "~> 5.0"
 gem "sidekiq"
 gem "sidekiq-cron"
 gem "sinatra", require: false
-gem "turbolinks", "~> 5"
+# gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 
 group :development, :test do

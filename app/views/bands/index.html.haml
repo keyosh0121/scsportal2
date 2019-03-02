@@ -1,37 +1,4 @@
 .uk-container.band-index-container
-
-  %a.mobile-band-navigator-button{:href => "#offcanvas-slide", "uk-toggle" => ""}
-    %span.uk-form-icon.uk-form-icon-flip.band-search-icon{"uk-icon" => "icon: search"}
-  #offcanvas-slide.mobile-band-navigator{"uk-offcanvas" => ""}
-    .uk-offcanvas-bar
-      %ul.uk-nav.uk-nav-default
-        %li.uk-active.all-band-button-mobile
-          %a All
-        %li.uk-nav-divider
-        %li.uk-nav-header バンドの種類
-        %ul.uk-nav-sub
-          %li.regular-button-mobile
-            %a 正規バンド
-          %li.temporal-button-mobile
-            %a 企画バンド
-        %li.uk-nav-divider
-        %li.uk-nav-header バンドの構成
-        %ul.uk-nav-sub
-          %li.mix-3-button-mobile
-            %a 混声3人
-          %li.mix-4-button-mobile
-            %a 混声4人
-          %li.mix-5-button-mobile
-            %a 混声5人
-          %li.mix-6-button-mobile
-            %a 混声6人
-          %li.mix-7-button-mobile
-            %a 混声7人
-          %li.boys-band-button-mobile
-            %a ヤロバン
-          %li.girls-band-button-mobile
-            %a ギャルバン
-
   %legend.uk-legend.flex-center.page-title バンド一覧
 
   %div{"uk-filter" => "target: .js-filter"}
@@ -174,3 +141,34 @@
       -#   .uk-card.uk-card-primary.uk-card-body.index-band.uk-height-1-1
       -#     .uk-container
       -#       %h3.index-band-name Committed企画
+  %a.mobile-band-navigator-button{:href => "#offcanvas-slide", "uk-toggle" => ""}
+    %span.uk-form-icon.uk-form-icon-flip.band-search-icon{"uk-icon" => "icon: search"}
+  #offcanvas-slide.mobile-band-navigator{"uk-offcanvas" => ""}
+    .uk-offcanvas-bar
+      %ul.uk-nav.uk-nav-default
+        %li.uk-active.all-band-button-mobile
+          %a All
+        %li.uk-nav-divider
+        %li.uk-nav-header バンドの種類
+        %ul.uk-nav-sub
+          %li.regular-button-mobile
+            %a 正規バンド
+          %li.temporal-button-mobile
+            %a 企画バンド
+        %li.uk-nav-divider
+        %li.uk-nav-header バンドの構成
+        %ul.uk-nav-sub
+          %li.mix-3-button-mobile
+            %a 混声3人
+          %li.mix-4-button-mobile
+            %a 混声4人
+          %li.mix-5-button-mobile
+            %a 混声5人
+          %li.mix-6-button-mobile
+            %a 混声6人
+          %li.mix-7-button-mobile
+            %a 混声7人
+          %li.boys-band-button-mobile
+            %a ヤロバン
+          %li.girls-band-button-mobile
+            %a ギャルバン
