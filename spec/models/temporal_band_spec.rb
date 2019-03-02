@@ -1,7 +1,9 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe TemporalBand, type: :model do
-  describe '#create_temporal_band' do
+  describe "#create_temporal_band" do
     it "is valid with a name, type, master" do
       band = build(:temporal_band)
       expect(band).to be_valid

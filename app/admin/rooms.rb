@@ -1,5 +1,6 @@
-ActiveAdmin.register Room do
+# frozen_string_literal: true
 
+ActiveAdmin.register Room do
   permit_params :name, :room_type
 
   index do
@@ -15,5 +16,4 @@ ActiveAdmin.register Room do
     end
     f.actions
   end
-
 end

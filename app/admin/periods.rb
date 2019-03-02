@@ -1,5 +1,6 @@
-ActiveAdmin.register Period do
+# frozen_string_literal: true
 
+ActiveAdmin.register Period do
   permit_params :name, :start_time, :end_time
 
   index do
@@ -17,5 +18,4 @@ ActiveAdmin.register Period do
     end
     f.actions
   end
-
 end

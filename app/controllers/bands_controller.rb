@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # きょうすけ担当
 class BandsController < ApplicationController
   # バンド一覧画面
@@ -6,7 +8,5 @@ class BandsController < ApplicationController
     @temporal_bands = TemporalBand.all
   end
 
-  def destroy
-  end
-
+  def destroy; end
 end
