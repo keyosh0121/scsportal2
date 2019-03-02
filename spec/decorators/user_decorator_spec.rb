@@ -39,4 +39,3 @@ RSpec.describe UserDecorator do
     end
   end
 end
-

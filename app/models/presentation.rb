@@ -23,6 +23,5 @@
 #  fk_rails_...  (host_id => users.id)
 #
 
-
 class Presentation < ApplicationRecord
 end

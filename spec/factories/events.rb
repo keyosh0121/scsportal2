@@ -26,7 +26,6 @@
 #  fk_rails_...  (host_id => users.id)
 #
 
-
 FactoryBot.define do
   factory :event do
   end

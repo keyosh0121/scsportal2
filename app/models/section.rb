@@ -22,7 +22,6 @@
 #  fk_rails_...  (leader_id => users.id)
 #
 
-
 class Section < ApplicationRecord
   has_many :users
   has_many :room_usages

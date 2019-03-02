@@ -40,14 +40,14 @@ group :development, :test do
 end
 
 group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
   gem "bullet"
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "rails_best_practices", require: false
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
-  gem "better_errors"
-  gem "binding_of_caller"
 end
 
 group :test do

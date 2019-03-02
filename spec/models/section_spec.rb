@@ -22,7 +22,6 @@
 #  fk_rails_...  (leader_id => users.id)
 #
 
-
 require "rails_helper"
 
 RSpec.describe Section, type: :model do

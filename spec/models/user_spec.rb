@@ -37,7 +37,6 @@
 #  fk_rails_...  (section_id => sections.id)
 #
 
-
 require "rails_helper"
 
 RSpec.describe User, type: :model do

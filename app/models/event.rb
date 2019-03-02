@@ -26,6 +26,5 @@
 #  fk_rails_...  (host_id => users.id)
 #
 
-
 class Event < ApplicationRecord
 end

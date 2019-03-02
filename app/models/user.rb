@@ -37,7 +37,6 @@
 #  fk_rails_...  (section_id => sections.id)
 #
 
-
 class User < ApplicationRecord
   belongs_to      :section
   belongs_to      :authority

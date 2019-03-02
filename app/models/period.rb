@@ -12,7 +12,6 @@
 #  updated_at :datetime         not null
 #
 
-
 class Period < ApplicationRecord
   has_many :mics
   has_many :room_usages

@@ -27,7 +27,6 @@
 #  fk_rails_...  (pa_id => users.id)
 #
 
-
 class RegularBandValidator < ActiveModel::Validator
   def validate(record)
     unless !record.type.nil? && record.type.match("RegularBand")

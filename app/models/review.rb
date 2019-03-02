@@ -25,6 +25,5 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-
 class Review < ApplicationRecord
 end

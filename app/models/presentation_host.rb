@@ -21,6 +21,5 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-
 class PresentationHost < ApplicationRecord
 end

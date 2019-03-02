@@ -37,7 +37,6 @@
 #  fk_rails_...  (section_id => sections.id)
 #
 
-
 FactoryBot.define do
   factory :user do
     name                  { "abe" }

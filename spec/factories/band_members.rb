@@ -22,7 +22,6 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-
 FactoryBot.define do
   factory :band_member do
   end

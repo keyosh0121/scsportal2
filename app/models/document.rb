@@ -20,6 +20,5 @@
 #  fk_rails_...  (presentation_id => presentations.id)
 #
 
-
 class Document < ApplicationRecord
 end

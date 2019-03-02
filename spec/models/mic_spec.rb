@@ -34,7 +34,6 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-
 require "rails_helper"
 
 RSpec.describe Mic, type: :model do

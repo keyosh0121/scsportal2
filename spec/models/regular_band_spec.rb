@@ -27,7 +27,6 @@
 #  fk_rails_...  (pa_id => users.id)
 #
 
-
 require "rails_helper"
 
 RSpec.describe RegularBand, type: :model do

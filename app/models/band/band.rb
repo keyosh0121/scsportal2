@@ -27,7 +27,6 @@
 #  fk_rails_...  (pa_id => users.id)
 #
 
-
 class Band < ApplicationRecord
   has_many :mics, dependent: :destroy
   has_many :band_members

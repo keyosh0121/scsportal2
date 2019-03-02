@@ -24,7 +24,6 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-
 require "rails_helper"
 
 RSpec.describe EventEntry, type: :model do

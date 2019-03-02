@@ -20,7 +20,6 @@
 #  fk_rails_...  (presentation_id => presentations.id)
 #
 
-
 require "rails_helper"
 
 RSpec.describe Document, type: :model do

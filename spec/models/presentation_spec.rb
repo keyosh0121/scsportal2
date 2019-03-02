@@ -23,7 +23,6 @@
 #  fk_rails_...  (host_id => users.id)
 #
 
-
 require "rails_helper"
 
 RSpec.describe Presentation, type: :model do

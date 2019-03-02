@@ -20,7 +20,6 @@
 #  fk_rails_...  (presentation_id => presentations.id)
 #
 
-
 FactoryBot.define do
   factory :document do
   end

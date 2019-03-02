@@ -34,7 +34,6 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-
 class Mic < ApplicationRecord
   belongs_to :user
   belongs_to :band

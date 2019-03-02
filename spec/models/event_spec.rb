@@ -26,7 +26,6 @@
 #  fk_rails_...  (host_id => users.id)
 #
 
-
 require "rails_helper"
 
 RSpec.describe Event, type: :model do

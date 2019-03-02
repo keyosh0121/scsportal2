@@ -27,7 +27,6 @@
 #  fk_rails_...  (pa_id => users.id)
 #
 
-
 FactoryBot.define do
   factory :regular_band do
     name                  { "testband" }

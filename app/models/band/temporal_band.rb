@@ -27,7 +27,6 @@
 #  fk_rails_...  (pa_id => users.id)
 #
 
-
 class TemporalBandValidator < ActiveModel::Validator
   def validate(record)
     unless !record.type.nil? && record.type.match("TemporalBand")

@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: '/letter_opener'
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
   ActiveAdmin.routes(self)
   root to: "users#show"

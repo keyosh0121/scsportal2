@@ -10,7 +10,6 @@
 #  updated_at :datetime         not null
 #
 
-
 class Authority < ApplicationRecord
   has_many :users
 end
