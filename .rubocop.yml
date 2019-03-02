@@ -1,6 +1,6 @@
 
 # target_version:
-#   rubocop v0.34.2
+#   ruboco v0.34.2
 
 # 自動生成されるものはチェック対象から除外する
 AllCops:
@@ -95,7 +95,7 @@ Style/CollectionMethods:
     reduce: "inject"
 
 # Hash#has_key? は許可したい
-tyle/PreferredHashMethods:
+Style/PreferredHashMethods:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
@@ -109,27 +109,14 @@ Style/Documentation:
 Style/DoubleNegation:
   Enabled: false
 
-# メソッドチェーンの改行は末尾に . を入れる
-# REPL に貼り付けた際の暴発を防ぐため
-Style/DotPosition:
-  EnforcedStyle: trailing
 
 # 明示的に else で nil を返すのは分かりやすいので許可する
 Style/EmptyElse:
   EnforcedStyle: empty
 
-# 桁揃えが綺麗にならないことが多いので migration は除外
-Style/ExtraSpacing:
-  Exclude:
-    - "db/migrate/*.rb"
-
 # いずれかに揃えるのならば `sprintf` や `format` より String#% が好きです
 Style/FormatString:
   EnforcedStyle: percent
-
-# if 文の中に 3 行程度のブロックを書くぐらいは許容した方が現実的
-Style/GuardClause:
-  MinBodyLength: 5
 
 # rake タスクの順序の hash は rocket を許可する
 Style/HashSyntax:
@@ -143,7 +130,7 @@ Style/IfUnlessModifier:
 
 # ({ と hash を開始した場合に ( の位置にインデントさせる
 # そもそも {} が必要ない可能性が高いが Style/BracesAroundHashParameters はチェックしないことにしたので
-Style/IndentHash:
+Layout/IndentHash:
   EnforcedStyle: consistent
 
 # scope 等は複数行でも lambda ではなく ->{} で揃えた方が見た目が綺麗
@@ -163,7 +150,7 @@ Style/GuardClause:
   Enabled: false
 
 # has_ から始まるメソッドは許可する
-Style/PredicateName:
+Naming/PredicateName:
   NamePrefixBlacklist:
     - "is_"
     - "have_"
@@ -214,9 +201,6 @@ Layout/DotPosition:
 Layout/MultilineMethodCallIndentation:
   Enabled: false
 
-Layout/SpaceBeforeFirstArg:
-  Enabled: false
-
 Layout/ExtraSpacing:
   Enabled: false
 
@@ -246,11 +230,11 @@ Lint/AssignmentInCondition:
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#safe-assignment-in-condition'
   Enabled: true
 
-Lint/BlockAlignment:
+Layout/BlockAlignment:
   Description: 'Align block ends correctly.'
   Enabled: true
 
-Lint/ConditionPosition:
+Layout/ConditionPosition:
   Description: >-
                  Checks for condition placed in a confusing position relative to
                  the keyword.
@@ -261,7 +245,7 @@ Lint/Debugger:
   Description: 'Check for debugger calls.'
   Enabled: true
 
-Lint/DefEndAlignment:
+Layout/DefEndAlignment:
   Description: 'Align ends corresponding to defs correctly.'
   Enabled: true
 
@@ -281,7 +265,7 @@ Lint/EmptyInterpolation:
   Description: 'Checks for empty string interpolation.'
   Enabled: true
 
-Lint/EndAlignment:
+Layout/EndAlignment:
   Description: 'Align ends correctly.'
   Enabled: true
 
@@ -294,7 +278,7 @@ Lint/EnsureReturn:
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-return-ensure'
   Enabled: true
 
-Lint/Eval:
+Security/Eval:
   Description: 'The use of eval represents a serious security risk.'
   Enabled: true
 
@@ -338,7 +322,7 @@ Lint/ShadowingOuterLocalVariable:
                  for block arguments or block local variables.
   Enabled: true
 
-Lint/SpaceBeforeFirstArg:
+Layout/SpaceBeforeFirstArg:
   Description: >-
                  Put a space between a method name and the first argument
                  in a method call without parentheses.
