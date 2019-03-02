@@ -10,6 +10,7 @@ AllCops:
     - "db/schema.rb"
     - 'app/admin/*'
     - 'app/controllers/users/*'
+    - 'test/**/**'
 
   DisplayCopNames: true
 
@@ -242,7 +243,7 @@ Lint/AmbiguousRegexpLiteral:
 
 Lint/AssignmentInCondition:
   Description: "Don't use assignment in conditions."
-  EnforcedStyleGuide: 'https://github.com/bbatsov/ruby-style-guide#safe-assignment-in-condition'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#safe-assignment-in-condition'
   Enabled: true
 
 Lint/BlockAlignment:
@@ -300,10 +301,6 @@ Lint/Eval:
 Lint/HandleExceptions:
   Description: "Don't suppress exception."
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#dont-hide-exceptions'
-  Enabled: true
-
-Lint/LiteralInCondition:
-  Description: 'Checks of literals used in conditions.'
   Enabled: true
 
 Lint/LiteralInInterpolation:

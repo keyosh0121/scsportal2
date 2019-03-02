@@ -64,7 +64,7 @@ RSpec.describe User, type: :model do
     end
 
     it "is invalid with a duplicate email address" do
-      user = create(:user)
+      create(:user)
       another_user = build(:user)
       another_user.valid?
       expect(another_user.errors[:email]).to include("はすでに存在します")
