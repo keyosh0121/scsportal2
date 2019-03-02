@@ -1,7 +1,9 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe User, type: :model do
-  describe '#create' do
+  describe "#create" do
     it "is valid with a name, email, password, password_confirmation, year, uni, gender, authority_id, section_id" do
       user = build(:user)
       expect(user).to be_valid
