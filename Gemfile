@@ -9,6 +9,7 @@ gem "coffee-rails", "~> 4.2"
 gem "devise"
 # erbをhamlに変換するコマンド：rails haml:erb2haml
 gem "bootsnap", ">= 1.1.0", require: false
+gem "draper"
 gem "haml-rails"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
