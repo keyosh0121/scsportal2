@@ -1,5 +1,6 @@
-ActiveAdmin.register Authority do
+# frozen_string_literal: true
 
+ActiveAdmin.register Authority do
   permit_params :name
 
   index do
@@ -13,5 +14,4 @@ ActiveAdmin.register Authority do
     end
     f.actions
   end
-
 end
