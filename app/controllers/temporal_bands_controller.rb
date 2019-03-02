@@ -41,7 +41,7 @@ class TemporalBandsController < ApplicationController
                 user_id
                 mic_number
               ]
-    ))
+            ))
   end
 
   def new_temporal_band(params)
@@ -60,6 +60,7 @@ class TemporalBandsController < ApplicationController
       params[:members].map do |member|
         raise "error" if member[:user_id].nil?
         raise "error" if member[:mic_number].nil?
+
         band_member = BandMember.new(
           user_id: member[:user_id],
           band_id: band.id,

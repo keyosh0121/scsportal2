@@ -66,6 +66,7 @@ class RegularBandsController < ApplicationController
       params[:members].map do |member|
         raise "error" if member[:user_id].nil?
         raise "error" if member[:mic_number].nil?
+
         band_member = BandMember.new(
           user_id: member[:user_id],
           band_id: band.id,
