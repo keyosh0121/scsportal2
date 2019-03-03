@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateBands < ActiveRecord::Migration[5.2]
   def change
     create_table :bands do |t|

@@ -1,7 +1,9 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe RegularBand, type: :model do
-  describe '#create_regular_band' do
+  describe "#create_regular_band" do
     it "is valid with a name, year, type, registeration, master, pa" do
       band = build(:regular_band)
       expect(band).to be_valid

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register User do
   includes :authority, :section
 
@@ -43,5 +45,4 @@ ActiveAdmin.register User do
     end
     f.actions
   end
-
 end

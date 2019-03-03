@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeBandColumns < ActiveRecord::Migration[5.2]
   def change
     add_reference :bands, :master, foreign_key: { to_table: :users }, null: false

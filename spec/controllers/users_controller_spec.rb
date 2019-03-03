@@ -1,7 +1,8 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe UsersController, type: :controller do
-
   # describe 'GET #search' do
   #   before do
   #     get :search, format: :json
@@ -10,5 +11,4 @@ RSpec.describe UsersController, type: :controller do
 
   #   end
   # end
-
 end

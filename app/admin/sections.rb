@@ -1,5 +1,6 @@
-ActiveAdmin.register Section do
+# frozen_string_literal: true
 
+ActiveAdmin.register Section do
   permit_params :name
 
   index do
@@ -13,5 +14,4 @@ ActiveAdmin.register Section do
     end
     f.actions
   end
-
 end

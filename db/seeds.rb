@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -56,6 +58,7 @@ RegularBand.create(name:"TestBand A",year:2014, registeration:true, master_id:1,
 RegularBand.create(name:"TestBand B",year:2014, registeration:true, master_id:2, pa_id:1, description: "regular band test data")
 RegularBand.create(name:"TestBand C",year:2014, registeration:true, master_id:3, pa_id:1, description: "regular band test data")
 
+<<<<<<< HEAD
 Mic.create(date: Date.new(2019,3,25), user_id: 1, band_id: 2, room_id: 1, period_id: 3, order: 1, remark: "I'm Tasky5")
 Mic.create(date: Date.new(2019,3,25), user_id: 2, band_id: 2, room_id: 1, period_id: 3, order: 2, remark: "I'm Tasky5")
 Mic.create(date: Date.new(2019,4,25), user_id: 3, band_id: 3, room_id: 1, period_id: 3, order: 3)
@@ -72,3 +75,21 @@ Mic.create(date: Date.new(2019,3,28), user_id: 3, band_id: 3, room_id: 13, perio
 Mic.create(date: Date.new(2019,3,28), user_id: 3, band_id: 3, period_id: 7)
 Mic.create(date: Date.new(2019,3,28), user_id: 3, band_id: 2, period_id: 7)
 Mic.create(date: Date.new(2019,3,15), user_id: 3, band_id: 2, period_id: 7)
+=======
+Mic.create(date: Date.new(2019, 2, 25), user_id: 1, band_id: 2, room_id: 1, period_id: 3, order: 1, remark: "I'm Tasky5")
+Mic.create(date: Date.new(2019, 2, 25), user_id: 2, band_id: 2, room_id: 1, period_id: 3, order: 2, remark: "I'm Tasky5")
+Mic.create(date: Date.new(2019, 2, 25), user_id: 3, band_id: 3, room_id: 1, period_id: 3, order: 3)
+Mic.create(date: Date.new(2019, 2, 25), user_id: 3, band_id: 3, room_id: 1, period_id: 4, order: 1)
+Mic.create(date: Date.new(2019, 2, 26), user_id: 3, band_id: 3, room_id: 2, period_id: 4, order: 1)
+Mic.create(date: Date.new(2019, 2, 20), user_id: 3, band_id: 1, room_id: 2, period_id: 5, order: 1)
+Mic.create(date: Date.new(2019, 2, 27), user_id: 2, band_id: 2, room_id: 1, period_id: 4)
+Mic.create(date: Date.new(2019, 2, 27), user_id: 3, band_id: 3, room_id: 1, period_id: 4)
+Mic.create(date: Date.new(2019, 2, 27), user_id: 3, band_id: 3, room_id: 1, period_id: 4)
+Mic.create(date: Date.new(2019, 2, 28), user_id: 2, band_id: 2, room_id: 1, period_id: 4)
+Mic.create(date: Date.new(2019, 2, 28), user_id: 3, band_id: 3, room_id: 1, period_id: 4)
+Mic.create(date: Date.new(2019, 2, 28), user_id: 2, band_id: 2, room_id: 12, period_id: 6)
+Mic.create(date: Date.new(2019, 2, 28), user_id: 3, band_id: 3, room_id: 13, period_id: 7)
+Mic.create(date: Date.new(2019, 2, 28), user_id: 3, band_id: 3, period_id: 7)
+Mic.create(date: Date.new(2019, 2, 28), user_id: 3, band_id: 2, period_id: 7)
+Mic.create(date: Date.new(2019, 3, 15), user_id: 3, band_id: 2, period_id: 7)
+>>>>>>> 9444d28d7844c092fc23b71a6845a552a5facf5e

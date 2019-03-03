@@ -1,43 +1,46 @@
-module BandsHelper
+# frozen_string_literal: true
 
-  def band_formation(band)
+module BandsHelper
+  def gender_nums(band)
     members = band.users
-    genders = members.map{|member| member.gender}
-    num_male = 0
-    num_female = 0
+    genders = members.map(&:gender)
+    nums = {}
+    nums[:male] = 0
+    nums[:female] = 0
     genders.each do |gender|
       if gender == "male"
-        num_male += 1
+        nums[:male] += 1
       else
-        num_female += 1
+        nums[:female] += 1
       end
     end
+    nums[:total] = nums[:male] + nums[:female]
+    nums
+  end
 
-    if num_male == 0
+  def band_formation(band)
+    nums = gender_nums(band)
+    if nums[:male].zero?
       return "girls-band"
-    elsif num_female == 0
+    elsif nums[:female].zero?
       return "boys-band"
-    elsif num_female + num_male == 3
+    elsif nums[:total] == 3
       return "mix-3"
-    elsif num_female + num_male == 4
+    elsif nums[:total] == 4
       return "mix-4"
-    elsif num_female + num_male == 5
+    elsif nums[:total] == 5
       return "mix-5"
-    elsif num_female + num_male == 6
+    elsif nums[:total] == 6
       return "mix-6"
-    elsif num_female + num_male == 7
+    elsif nums[:total] == 7
       return "mix-7"
     end
   end
 
   def user_band_member?(band, user)
     band.users.each do |member|
-      if user == member
-        return true
-      end
+      return true if user == member
     end
-    return false
+    false
   end
-
-
 end
