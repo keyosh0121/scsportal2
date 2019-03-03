@@ -1,60 +1,165 @@
-.uk-text-center.uk-text-large マイク練一覧画面(音響用)
+.uk-width-2-3@m.uk-padding-small.uk-margin-auto
+  .uk-text-large マイク練申請一覧
+  %ul.uk-tab.uk-margin-top{'uk-tab': ''}
+    %li
+      %a{href:'#'} 全て
+    %li
+      %a{href:'#'} 未承認
+    %li
+      %a{href:'#'} 承認済み
+  %ul.uk-switcher
+    %li
+      -# TABLE OF MICS (ALL)
+      %table.uk-table.uk-table-divider.uk-table-small
+        %thead
+          %tr
+            %th BAND
+            %th TIME
+            %th STATUS
+            %th PA
+            %th EDIT
+        %tbody
+          - if Mic.eliminate_past.none?
+            %tr.uk-background-muted
+              %td{colspan: 5} ※表示するデータがありません。
+          - Mic.eliminate_past.unique_dates.each do |date|
+            %tr.uk-background-muted
+              %td{colspan: 4}= date.strftime("%Y/%m/%d") 
+              %td
+                %a.uk-icon-link{'uk-toggle': "target: #data#{date}; animation: uk-animation-slide-top-small", 'uk-icon': 'chevron-down'}
+            - Mic.on_date(date).each do |mc|
+              %tr{id: "data#{date}"}
+                %td.uk-text-truncate= mc.band.name
+                %td= mc.period.name
+                %td
+                  - case 
+                    -when mc.unapproved?
+                      .uk-label.uk-margin-auto.uk-label-default 未承認
+                    -when mc.approved?
+                      .uk-label.uk-margin-auto.uk-label-success 承認済
+                    -when mc.declined?
+                      .uk-label.uk-margin-auto.uk-label-danger 否認
+                %td.uk-text-truncate= mc.band.pa.name
+                %td
+                  %a.uk-icon-link{'uk-icon': 'menu'}
+        
+    %li
+      %table.uk-table.uk-table-divider.uk-table-small
+        %thead
+          %tr
+            %th BAND
+            %th TIME
+            %th STATUS
+            %th PA
+            %th EDIT
+        %tbody
+          - if Mic.eliminate_past.unapproved.unique_dates.none?
+            %tr.uk-background-muted
+              %td{colspan: 5} 表示するデータがありません。
+          - Mic.eliminate_past.unapproved.unique_dates.each do |date|
+            %tr.uk-background-muted
+              %td{colspan: 4}= date.strftime("%Y/%m/%d") 
+              %td
+                %a.uk-icon-link{'uk-toggle': "target: #uapdata#{date}; animation: uk-animation-slide-top-small", 'uk-icon': 'chevron-down'}
+            - Mic.on_date(date).unapproved.each do |mc|
+              %tr{id: "uapdata#{date}"}
+                %td.uk-text-truncate= mc.band.name
+                %td= mc.period.name
+                %td
+                  .uk-label.uk-margin-auto.uk-label-default 未承認
+ 
+                %td.uk-text-truncate= mc.band.pa.name
+                %td
+                  %a.uk-icon-link{'uk-icon': 'menu'}
+    %li
+      %table.uk-table.uk-table-divider.uk-table-small
+        %thead
+          %tr
+            %th BAND
+            %th TIME
+            %th STATUS
+            %th PA
+            %th EDIT
+        %tbody
+          - if Mic.eliminate_past.approved.unique_dates.none?
+            %tr.uk-background-muted
+              %td{colspan: 5} 表示するデータがありません。
+              
+          - Mic.eliminate_past.approved.unique_dates.each do |date|
+            %tr
+              %td.uk-background-muted{colspan: 4}= date.strftime("%Y/%m/%d") 
+              %td
+                %a.uk-icon-link{'uk-toggle': "target: #decdata#{date}; animation: uk-animation-slide-top-small", 'uk-icon': 'chevron-down'}
+            - Mic.on_date(date).approved.each do |mc|
+              %tr{id: "#decdata#{date}"}
+                %td.uk-text-truncate= mc.band.name
+                %td= mc.period.name
+                %td
+                  .uk-label.uk-margin-auto.uk-label-success 承認済
+                %td.uk-text-truncate= mc.band.pa.name
+                %td
+                  %a.uk-icon-link{'uk-icon': 'menu'}
 
-.uk-container.uk-width-2-3@s.uk-margin-auto.uk-padding-small(uk-accordion="multiple: true")
-  - mic_date = @mics.map(&:date).uniq
-  - mic_date.each do |date|
-    .day-wrap
-      %a{href: "#", class: "uk-accordion-title"}
-        .belt= date
-      .uk-accordion-content.content-wrap
-        - mic_period = @mics.where(date: date).map(&:period).uniq
-        - mic_period.each do |period|
-          /限表示
-          .time-wrap
-            = "== "+period.name+" =="
 
-          /各マイク練表示
-          - @mics.where(date: date, period: period).each do |mic|
-            /同じ限のマイク練表示
-            .split-wrap
-              /マイク練順番
-              .order-wrap.flex-center
-                - if mic.order
-                  = mic.order
-                - else
-                  .not-define= "未定"
 
-              /部屋ボタン
-              .room-wrap.flex-center
-                - if mic.room
-                  = mic.room.name
-                - else
-                  .not-define= "部屋未定" #TODO:部屋登録用モーダル作る
 
-              /備考ボタン
-              .remark-wrap.flex-center
-                - if mic.remark
-                  %input{type: "button", value: "備考あり", onclick: "alert('#{mic.remark}')" }
-                - else
-                  = "備考なし"
+-# .uk-text-center.uk-text-large マイク練一覧画面(音響用)
 
-              /バンド名
-              .band-wrap.flex-center
-                = mic.band.name
+-# .uk-container.uk-width-2-3@s.uk-margin-auto.uk-padding-small(uk-accordion="multiple: true")
+-#   - mic_date = @mics.map(&:date).uniq
+-#   - mic_date.each do |date|
+-#     .day-wrap
+-#       %a{href: "#", class: "uk-accordion-title"}
+-#         .belt= date
+-#       .uk-accordion-content.content-wrap
+-#         - mic_period = @mics.where(date: date).map(&:period).uniq
+-#         - mic_period.each do |period|
+-#           /限表示
+-#           .time-wrap
+-#             = "== "+period.name+" =="
 
-              /ステータス変更ボタン(削除をここでできるようにする)
-              /.approve-wrap.mic-button.flex-center.button-edge-top-right
-              = link_to mic_path(mic), method: 'PATCH', data: { confirm: "ステータスを変更します(未実装)" },  class: "approve-wrap mic-button button-edge-top-right flex-center" do
-                .flex-center= mic_status_string(mic)
+-#           /各マイク練表示
+-#           - @mics.where(date: date, period: period).each do |mic|
+-#             /同じ限のマイク練表示
+-#             .split-wrap
+-#               /マイク練順番
+-#               .order-wrap.flex-center
+-#                 - if mic.order
+-#                   = mic.order
+-#                 - else
+-#                   .not-define= "未定"
 
-              /PA出席ボタン
-              = link_to  mic_path(mic), method: 'PATCH', data: { confirm: "PA出席を変更します(未実装)" }, class: "pa-wrap mic-button" do
-                .flex-center= pa_attendance_string(mic)
-                .flex-center= "PA-Name"#mic.band.pa.name#paのリレーション組んでないので動きません
+-#               /部屋ボタン
+-#               .room-wrap.flex-center
+-#                 - if mic.room
+-#                   = mic.room.name
+-#                 - else
+-#                   .not-define= "部屋未定" #TODO:部屋登録用モーダル作る
 
-              /連絡ボタン
-              = link_to mic_path(mic), method: 'PATCH', data: { confirm: "バンマスへ連絡します。(未実装)"}, class: "contact-wrap mic-button button-edge-bottom-right" do
-                .flex-center= "バンマスへ"
-                .flex-center= "連絡" #TODO: クリックでメール送信画面
+-#               /備考ボタン
+-#               .remark-wrap.flex-center
+-#                 - if mic.remark
+-#                   %input{type: "button", value: "備考あり", onclick: "alert('#{mic.remark}')" }
+-#                 - else
+-#                   = "備考なし"
+
+-#               /バンド名
+-#               .band-wrap.flex-center
+-#                 = mic.band.name
+
+-#               /ステータス変更ボタン(削除をここでできるようにする)
+-#               /.approve-wrap.mic-button.flex-center.button-edge-top-right
+-#               = link_to mic_path(mic), method: 'PATCH', data: { confirm: "ステータスを変更します(未実装)" },  class: "approve-wrap mic-button button-edge-top-right flex-center" do
+-#                 .flex-center= mic_status_string(mic)
+
+-#               /PA出席ボタン
+-#               = link_to  mic_path(mic), method: 'PATCH', data: { confirm: "PA出席を変更します(未実装)" }, class: "pa-wrap mic-button" do
+-#                 .flex-center= pa_attendance_string(mic)
+-#                 .flex-center= "PA-Name"#mic.band.pa.name#paのリレーション組んでないので動きません
+
+-#               /連絡ボタン
+-#               = link_to mic_path(mic), method: 'PATCH', data: { confirm: "バンマスへ連絡します。(未実装)"}, class: "contact-wrap mic-button button-edge-bottom-right" do
+-#                 .flex-center= "バンマスへ"
+-#                 .flex-center= "連絡" #TODO: クリックでメール送信画面
 
 
