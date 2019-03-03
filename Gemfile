@@ -4,30 +4,45 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "2.5.1"
 gem "activeadmin"
+gem "activerecord-import"
 gem "coffee-rails", "~> 4.2"
 gem "devise"
+# erbをhamlに変換するコマンド：rails haml:erb2haml
+gem "bootsnap", ">= 1.1.0", require: false
+gem "draper"
 gem "haml-rails"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
+gem "jquery-ui-rails"
 gem "pg", ">= 0.18", "< 2.0"
 gem "pry-byebug"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.1"
 gem "rails-i18n"
+gem "redis"
+gem "redis-namespace"
+gem "redis-rails"
 gem "sass-rails", "~> 5.0"
-gem "turbolinks", "~> 5"
+gem "sidekiq"
+gem "sidekiq-cron"
+gem "sinatra", require: false
+# gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
-# erbをhamlに変換するコマンド：rails haml:erb2haml
-gem "bootsnap", ">= 1.1.0", require: false
 
 group :development, :test do
+  gem "annotate"
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails"
+  gem "letter_opener"
+  gem "letter_opener_web"
   gem "rails-controller-testing"
+  gem "rails-erd"
   gem "rspec-rails"
 end
 
 group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
   gem "bullet"
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "rails_best_practices", require: false
